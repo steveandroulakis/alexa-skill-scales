@@ -2,6 +2,7 @@
 
 For musical instrument practice.
 By Steve Androulakis (androula@amazon.com)
+`amzn1.ask.skill.92b76c85-84a3-49c7-a932-28d5ef11c1a5`
 
 # Configuration
 

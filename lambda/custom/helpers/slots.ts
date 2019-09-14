@@ -24,6 +24,46 @@ export function getSlotVal(handlerInput: HandlerInput, name: string) {
   return slotValue;
 }
 
+export function getSlotID(handlerInput: HandlerInput, name: string) {
+  const intentRequest = handlerInput.requestEnvelope.request as IntentRequest;
+  const currentIntent = intentRequest.intent;
+
+  let slotID = null;
+
+  if ("slots" in intentRequest.intent) {
+    for (const slotName of Object.keys(intentRequest.intent.slots)) {
+      const currentSlot = currentIntent.slots[slotName];
+
+      if (currentSlot.name !== name) {
+        continue;
+      }
+
+      if (
+        currentSlot.resolutions &&
+        currentSlot.resolutions.resolutionsPerAuthority[0]
+      ) {
+        if (
+          currentSlot.resolutions.resolutionsPerAuthority[0].status.code ===
+          "ER_SUCCESS_MATCH"
+        ) {
+          if (
+            currentSlot.resolutions.resolutionsPerAuthority[0].values.length >=
+            1
+          ) {
+            currentSlot.resolutions.resolutionsPerAuthority[0].values.forEach(
+              element => {
+                slotID = element.value.id;
+              }
+            );
+          }
+        }
+      }
+    }
+  }
+
+  return slotID;
+}
+
 // see: https://developer.amazon.com/docs/custom-skills/use-dynamic-entities-for-customized-interactions.html
 export function dynamicEntitiesFromValues(
   slotName: string,

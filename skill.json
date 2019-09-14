@@ -3,7 +3,7 @@
     "apis": {
       "custom": {
         "endpoint": {
-          "uri": "arn:aws:lambda:us-west-2:293016420137:function:nab-four-word-payments-dev-execute"
+          "uri": "arn:aws:lambda:us-west-2:293016420137:function:scales-dev-execute"
         },
         "interfaces": [{
             "type": "ALEXA_PRESENTATION_APL"

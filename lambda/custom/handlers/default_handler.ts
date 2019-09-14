@@ -6,7 +6,8 @@ import { STATES } from "../helpers/state";
 import {
   getSlotVal,
   dynamicEntitiesFromValues,
-  findClosestSlot
+  findClosestSlot,
+  getSlotID
 } from "../helpers/slots";
 import { IntentRequest } from "ask-sdk-model";
 
@@ -27,27 +28,25 @@ export const LaunchRequestHandler: RequestHandler = {
           handlerInput.requestEnvelope.request.intent.name ===
             "AMAZON.RepeatIntent" ||
           handlerInput.requestEnvelope.request.intent.name ===
-            "PostcodeIntent" ||
-          handlerInput.requestEnvelope.request.intent.name ===
             "AMAZON.FallbackIntent"))
     );
   },
   handle: function(handlerInput: HandlerInput) {
-    const resp = handlerInput.responseBuilder;
-
     // const slotName = getSlotVal(handlerInput, "name");
     // const slotDollars = getSlotVal(handlerInput, "dollars");
 
     // const account = findClosestSlot(slotName, []);
     // const dollars = slotDollars;
 
-    resp.withShouldEndSession(false);
-
     handlerInput.attributesManager.setSessionAttributes({
       state: STATES.DEFAULT
     });
 
-    return resp.getResponse();
+    const resp = handlerInput.responseBuilder
+      .speak("Hello")
+      .withShouldEndSession(false)
+      .getResponse();
+    return resp;
   }
 };
 
