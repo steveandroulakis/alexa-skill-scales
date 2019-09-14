@@ -120,7 +120,11 @@ export const HERE_IS = [
   "I'll play",
   "I'll do",
   "Here comes",
-  "Here goes"
+  "Here goes",
+  "",
+  "",
+  "",
+  ""
 ];
 
 export const WHAT_SCALE = [
