@@ -59,6 +59,15 @@ function computeScaleFilename(computedScale) {
     const scaleFilename = `scale_${computedScale.key}_${computedScale.mode}_${computedScale.octave}o_${tempos[computedScale.speed]}.mp3`;
     return scaleFilename;
 }
+function getDefaultScaleAttributes() {
+    return {
+        key: undefined,
+        mode: "major",
+        speed: "normal",
+        octave: "1"
+    };
+}
+exports.getDefaultScaleAttributes = getDefaultScaleAttributes;
 /// -----------------------------------------------------------------------------
 const defaultScaleAttributes = {
     key: undefined,

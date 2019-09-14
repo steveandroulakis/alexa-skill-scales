@@ -1,3 +1,4 @@
 {
-    "LOCALDB_TABLE": "scales"
+    "LOCALDB_TABLE": "scales",
+    "SCALE_AUDIO_URL_PREFIX": "https://androula-host.s3-us-west-2.amazonaws.com/scale-helper/"
 }

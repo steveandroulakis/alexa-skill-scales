@@ -104,6 +104,15 @@ function computeScaleFilename(computedScale: ScaleAttributes) {
   return scaleFilename;
 }
 
+export function getDefaultScaleAttributes(): ScaleAttributes {
+  return {
+    key: undefined,
+    mode: "major",
+    speed: "normal",
+    octave: "1"
+  };
+}
+
 /// -----------------------------------------------------------------------------
 
 const defaultScaleAttributes: ScaleAttributes = {

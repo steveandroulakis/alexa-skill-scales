@@ -50,11 +50,10 @@ export function getSlotID(handlerInput: HandlerInput, name: string) {
             currentSlot.resolutions.resolutionsPerAuthority[0].values.length >=
             1
           ) {
-            currentSlot.resolutions.resolutionsPerAuthority[0].values.forEach(
-              element => {
-                slotID = element.value.id;
-              }
-            );
+            slotID =
+              currentSlot.resolutions.resolutionsPerAuthority[0].values[0].value
+                .id;
+            break;
           }
         }
       }
