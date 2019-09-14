@@ -1,0 +1,14 @@
+{
+    "beautify.onSave": true,
+    "beautify.JSfiles": [
+        "js",
+        "json",
+        "jsbeautifyrc",
+        "jshintrc",
+        "ts"
+    ],
+    "beautify.HTMLfiles": [
+        "htm",
+        "html"
+    ]
+}

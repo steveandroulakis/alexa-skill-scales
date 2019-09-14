@@ -1,0 +1,128 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "scales",
+      "intents": [{
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.YesIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NoIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": [
+            "go away"
+          ]
+        },
+        {
+          "name": "AMAZON.RepeatIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.MoreIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateSettingsIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NextIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PageUpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PageDownIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PreviousIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollRightIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollDownIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollLeftIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollUpIntent",
+          "samples": []
+        },
+        {
+          "name": "FourWordPaymentIntent",
+          "samples": [
+            "pay {name} {dollars} dollars",
+            "pay {name} {dollars}",
+            "give {name} {dollars} dollars",
+            "give {name} {dollars}",
+            "transfer {name} {dollars} dollars",
+            "transfer {name} {dollars}",
+            "send {name} {dollars} dollars",
+            "send {name} {dollars}",
+            "{name} {dollars} dollars",
+            "{name} {dollars}",
+            "pay {dollars} dollars to {name}",
+            "pay {dollars} dollars for {name}",
+            "pay {dollars} to {name}",
+            "pay {dollars} for {name}",
+            "give {dollars} dollars to {name}",
+            "give {dollars} dollars for {name}",
+            "give {dollars} to {name}",
+            "give {dollars} for {name}",
+            "transfer {dollars} dollars to {name}",
+            "transfer {dollars} dollars for {name}",
+            "transfer {dollars} to {name}",
+            "transfer {dollars} for {name}",
+            "send {dollars} dollars to {name}",
+            "send {dollars} dollars for {name}",
+            "send {dollars} to {name}",
+            "send {dollars} for {name}",
+            "{dollars} dollars to {name}",
+            "{dollars} dollars for {name}",
+            "{dollars} to {name}",
+            "{dollars} for {name}"
+          ],
+          "slots": [{
+              "name": "name",
+              "type": "AMAZON.FirstName"
+            },
+            {
+              "name": "dollars",
+              "type": "AMAZON.NUMBER"
+            }
+          ]
+        }
+      ],
+      "types": []
+    }
+  },
+  "version": "5"
+}

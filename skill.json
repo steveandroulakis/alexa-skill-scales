@@ -1,0 +1,36 @@
+{
+  "manifest": {
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-west-2:293016420137:function:nab-four-word-payments-dev-execute"
+        },
+        "interfaces": [{
+            "type": "ALEXA_PRESENTATION_APL"
+          },
+          {
+            "type": "RENDER_TEMPLATE"
+          }
+        ],
+        "isDialogUsedByLocale": {}
+      }
+    },
+    "manifestVersion": "1.0",
+    "publishingInformation": {
+      "locales": {
+        "en-AU": {
+          "name": "Scales",
+          "summary": "Musical scales",
+          "description": "Musical scales",
+          "examplePhrases": [
+            "ask scales for B flat minor"
+          ]
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "Sample Testing Instructions.",
+      "category": "EDUCATION_AND_REFERENCE",
+      "distributionCountries": []
+    }
+  }
+}

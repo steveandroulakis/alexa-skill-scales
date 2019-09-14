@@ -1,0 +1,40 @@
+{
+    "name": "skill-template-typescript",
+    "version": "1.0.0",
+    "description": "Blank typescript serverless Alexa skill (ask-v2)",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "author": "Steve Androulakis (androula@amazon.com)",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/jest": "^24.0.13",
+        "@types/moment-timezone": "0.5.6",
+        "@types/node": "^10.14.18",
+        "aws-sdk": "^2.266.1",
+        "jest": "^24.8.0",
+        "prettier": "1.12.1",
+        "serverless-webpack": "^3.1.2",
+        "ts-jest": "^24.0.2",
+        "ts-loader": "^4.2.0",
+        "ts-node": "6.0.0",
+        "tslint": "^5.9.1",
+        "typescript": "^2.9.2",
+        "webpack": "^4.10.2",
+        "webpack-cli": "^3.1.2"
+    },
+    "dependencies": {
+        "ajv": "^6.10.2",
+        "ask-sdk": "^2.5.2",
+        "ask-sdk-core": "^2.5.2",
+        "ask-sdk-model": "^1.15.1",
+        "fuse.js": "^3.4.5",
+        "metaphone": "^1.0.5",
+        "moment-timezone": "^0.5.25",
+        "request": "^2.88.0",
+        "request-promise-native": "^1.0.5",
+        "serverless-plugin-typescript": "^1.1.3",
+        "source-map-support": "^0.5.0"
+    }
+}
