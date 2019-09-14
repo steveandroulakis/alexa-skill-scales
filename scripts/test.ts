@@ -156,3 +156,18 @@ console.log(
 );
 
 console.log(computeScaleFilename(computedScaleAttributes));
+
+export function randomScaleAttribute(attribute: string): string {
+  const library = SCALE_LIBRARY["scale"][attribute];
+  const keys = Object.keys(library);
+
+  const rand = Math.floor(Math.random() * keys.length);
+
+  return library[keys[rand]];
+}
+
+export function scaleSuggestion(attribute: string): string {
+  return `${randomScaleAttribute("key")} ${randomScaleAttribute("mode")}`;
+}
+
+console.log(scaleSuggestion("key"));

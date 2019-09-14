@@ -97,4 +97,16 @@ const output = remainingScaleAttributes(computedScaleAttributes);
 console.log(output);
 console.log(speechScaleResponse(computedScaleAttributes, attributes.requestScaleAttributes));
 console.log(computeScaleFilename(computedScaleAttributes));
+function randomScaleAttribute(attribute) {
+    const library = scale_library_json_1.default["scale"][attribute];
+    const keys = Object.keys(library);
+    const rand = Math.floor(Math.random() * keys.length);
+    return library[keys[rand]];
+}
+exports.randomScaleAttribute = randomScaleAttribute;
+function scaleSuggestion(attribute) {
+    return `${randomScaleAttribute("key")} ${randomScaleAttribute("mode")}`;
+}
+exports.scaleSuggestion = scaleSuggestion;
+console.log(scaleSuggestion("key"));
 //# sourceMappingURL=test.js.map

@@ -9,7 +9,9 @@ import {
   SessionEndedHandler,
   AnyIntentRequest,
   PlayScaleIntent,
-  HelpIntentHandler
+  HelpIntentHandler,
+  PlayScaleIncompleteIntent,
+  NoRepeatIntent
 } from "./handlers/default_handler";
 import { preInterceptor, postInterceptor } from "./handlers/interceptors";
 import { CONSTANTS } from "./helpers/constants";
@@ -19,7 +21,9 @@ const skillBuilder = Alexa.SkillBuilders.standard();
 export const handler = skillBuilder
   .addRequestHandlers(
     LaunchRequestHandler,
+    PlayScaleIncompleteIntent,
     PlayScaleIntent,
+    NoRepeatIntent,
     HelpIntentHandler,
     StopIntentHandler,
     AnyIntentRequest,

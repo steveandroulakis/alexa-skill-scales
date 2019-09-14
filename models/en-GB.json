@@ -2,8 +2,7 @@
   "interactionModel": {
     "languageModel": {
       "invocationName": "scales",
-      "intents": [
-        {
+      "intents": [{
           "name": "AMAZON.CancelIntent",
           "samples": []
         },
@@ -27,7 +26,15 @@
         },
         {
           "name": "AMAZON.RepeatIntent",
-          "samples": []
+          "samples": [
+            "play again",
+            "play it again",
+            "repeat the scale",
+            "repeat that scale",
+            "play the scale again",
+            "give me that again",
+            "give me that scale again"
+          ]
         },
         {
           "name": "AMAZON.FallbackIntent",
@@ -79,8 +86,7 @@
         },
         {
           "name": "PlayScaleIntent",
-          "slots": [
-            {
+          "slots": [{
               "name": "key",
               "type": "KEY"
             },
@@ -5241,14 +5247,45 @@
             "an {key} {mode} at {speed} over {octave}",
             "an {key} {mode} {speed} {octave}",
             "an {key} {mode} {speed} for {octave}",
-            "an {key} {mode} {speed} over {octave}"
+            "an {key} {mode} {speed} over {octave}",
+            "play {speed}",
+            "play at {speed}",
+            "play at a {speed}",
+            "switch to {key} {mode} {speed}",
+            "switch to {key} {mode} at {speed}",
+            "switch to {key} {mode} at {speed}",
+            "switch to {key} at {speed}",
+            "switch to {octave} {speed}",
+            "switch to {speed} for {octave}",
+            "switch to {key}",
+            "switch to {mode}",
+            "switch to {octave}",
+            "switch to {speed}",
+            "change to {key} {mode} {speed}",
+            "change to {key} {mode} at {speed}",
+            "change to {key} {mode} at {speed}",
+            "change to {key} at {speed}",
+            "change to {octave} {speed}",
+            "change to {speed} for {octave}",
+            "change to {key}",
+            "change to {mode}",
+            "change to {octave}",
+            "change to {speed}",
+            "change the {key} {mode} {speed}",
+            "change the {key} {mode} at {speed}",
+            "change the {key} {mode} at {speed}",
+            "change the {key} at {speed}",
+            "change the {octave} {speed}",
+            "change the {speed} for {octave}",
+            "change the {key}",
+            "change the {mode}",
+            "change the {octave}",
+            "change the {speed}"
           ]
         }
       ],
-      "types": [
-        {
-          "values": [
-            {
+      "types": [{
+          "values": [{
               "id": "A",
               "name": {
                 "value": "a.",
@@ -5370,8 +5407,7 @@
           "name": "KEY"
         },
         {
-          "values": [
-            {
+          "values": [{
               "id": "harmonic_minor",
               "name": {
                 "value": "harmonic minor",
@@ -5408,8 +5444,7 @@
           "name": "MODE"
         },
         {
-          "values": [
-            {
+          "values": [{
               "id": "2",
               "name": {
                 "value": "two octaves",
@@ -5432,8 +5467,7 @@
           "name": "OCTAVE"
         },
         {
-          "values": [
-            {
+          "values": [{
               "id": "fast",
               "name": {
                 "value": "fast",
@@ -5444,7 +5478,10 @@
                   "fast pace",
                   "quicker",
                   "faster",
-                  "quick"
+                  "quick",
+                  "quick speed",
+                  "fast speed",
+                  "faster speed"
                 ]
               }
             },
@@ -5457,7 +5494,11 @@
                   "regular",
                   "moderate pace",
                   "moderate",
-                  "medium"
+                  "medium",
+                  "normal speed",
+                  "regular speed",
+                  "medium speed",
+                  "moderate speed"
                 ]
               }
             },
@@ -5471,7 +5512,10 @@
                   "slowly",
                   "slow pace",
                   "slowed",
-                  "slow down"
+                  "slow down",
+                  "slow speed",
+                  "slower speed",
+                  "slower pace"
                 ]
               }
             }

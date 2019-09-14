@@ -17,8 +17,12 @@ import {
   randomSpeech,
   ANOTHER,
   INTRO,
-  polly,
-  INTRO_BRIEF
+  prepareResponse,
+  INTRO_BRIEF,
+  ScaleResponsePayload,
+  GOODBYE,
+  isOneShot,
+  WHAT_SCALE
 } from "../helpers/constants";
 
 // TODO: This intent has been hard-wired to accept requests from
@@ -46,11 +50,57 @@ export const LaunchRequestHandler: RequestHandler = {
       }
     }
 
-    const resp = handlerInput.responseBuilder
-      .speak(polly(speech))
+    const scaleResponse: ScaleResponsePayload = {
+      speech: speech,
+      screenPayload: {}
+    };
+
+    return prepareResponse(handlerInput, scaleResponse)
       .withShouldEndSession(false)
       .getResponse();
-    return resp;
+  }
+};
+
+export const PlayScaleIncompleteIntent: RequestHandler = {
+  canHandle: function(handlerInput: HandlerInput) {
+    return (
+      handlerInput.requestEnvelope.request.type === "IntentRequest" &&
+      (handlerInput.requestEnvelope.request.intent.name === "PlayScaleIntent" ||
+        handlerInput.requestEnvelope.request.intent.name ===
+          "AMAZON.YesIntent") &&
+      isOneShot(handlerInput) &&
+      !getSlotID(handlerInput, "key") // we won't fulfil requests missing key from one-shots
+    );
+  },
+  handle: async function(handlerInput: HandlerInput) {
+    const scaleResponse: ScaleResponsePayload = {
+      speech:
+        "Sorry, I didn't catch some of that. What scale would you like to hear?",
+      screenPayload: {}
+    };
+
+    return prepareResponse(handlerInput, scaleResponse)
+      .withShouldEndSession(false)
+      .getResponse();
+  }
+};
+
+export const NoRepeatIntent: RequestHandler = {
+  canHandle: function(handlerInput: HandlerInput) {
+    return (
+      handlerInput.requestEnvelope.request.type === "IntentRequest" &&
+      handlerInput.requestEnvelope.request.intent.name === "AMAZON.NoIntent"
+    );
+  },
+  handle: async function(handlerInput: HandlerInput) {
+    const scaleResponse: ScaleResponsePayload = {
+      speech: `${randomSpeech(WHAT_SCALE)}`,
+      screenPayload: {}
+    };
+
+    return prepareResponse(handlerInput, scaleResponse)
+      .withShouldEndSession(false)
+      .getResponse();
   }
 };
 
@@ -104,11 +154,14 @@ export const PlayScaleIntent: RequestHandler = {
 
     console.log(speech);
 
-    const resp = handlerInput.responseBuilder
-      .speak(polly(speech))
+    const scaleResponse: ScaleResponsePayload = {
+      speech: speech,
+      screenPayload: {}
+    };
+
+    return prepareResponse(handlerInput, scaleResponse)
       .withShouldEndSession(false)
       .getResponse();
-    return resp;
   }
 };
 
@@ -124,11 +177,14 @@ export const HelpIntentHandler: RequestHandler = {
   },
   handle: function(handlerInput: HandlerInput) {
     // console.log(JSON.stringify(handlerInput));
-    const resp = handlerInput.responseBuilder
-      .speak(polly(INTRO))
+    const scaleResponse: ScaleResponsePayload = {
+      speech: INTRO,
+      screenPayload: {}
+    };
+
+    return prepareResponse(handlerInput, scaleResponse)
       .withShouldEndSession(false)
       .getResponse();
-    return resp;
   }
 };
 
@@ -145,11 +201,17 @@ export const StopIntentHandler: RequestHandler = {
   },
   handle: function(handlerInput: HandlerInput) {
     // console.log(JSON.stringify(handlerInput));
-    const resp = handlerInput.responseBuilder
-      .speak(polly("Until next time, goodbye."))
+
+    const speech = randomSpeech(GOODBYE);
+
+    const scaleResponse: ScaleResponsePayload = {
+      speech: speech,
+      screenPayload: {}
+    };
+
+    return prepareResponse(handlerInput, scaleResponse)
       .withShouldEndSession(true)
       .getResponse();
-    return resp;
   }
 };
 
@@ -198,7 +260,12 @@ export const AnyIntentRequest: RequestHandler = {
       }
     }
 
-    const resp = handlerInput.responseBuilder.speak(polly(prompt));
+    const scaleResponse: ScaleResponsePayload = {
+      speech: prompt,
+      screenPayload: {}
+    };
+
+    const resp = prepareResponse(handlerInput, scaleResponse);
 
     resp.withShouldEndSession(false);
     resp.withSimpleCard("androula@ debug skeleton", prompt);
