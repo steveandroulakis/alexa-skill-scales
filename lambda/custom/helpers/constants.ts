@@ -22,7 +22,7 @@ export const INTRO = `${SOUNDFX} Scales can play in all keys from A to G, includ
   HINT
 )}.`;
 
-export const INTRO_BRIEF = `${SOUNDFX} Scales can play in all keys, major and minor scales, different speeds, up to two octaves. What shall I play?`;
+export const INTRO_BRIEF = `${SOUNDFX} Scales can play in all keys, major and minor, different speeds, up to two octaves. What shall I play?`;
 
 export const ANOTHER = [
   "Another?",

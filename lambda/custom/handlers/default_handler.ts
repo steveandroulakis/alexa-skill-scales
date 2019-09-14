@@ -87,33 +87,21 @@ export const PlayScaleIntent: RequestHandler = {
 
     const computedScaleAttributes = computeScaleAttributes(attributes);
 
-    const remaining = remainingScaleAttributes(computedScaleAttributes);
-
-    // console.log(`COMPUTED ${JSON.stringify(computedScaleAttributes)}`);
-    // console.log(`REMAINING ${JSON.stringify(remaining)}`);
-
     let speech = ``;
 
-    if (remaining.length >= 1) {
-      console.log("REMAINING");
-      console.log(remaining);
+    speech = speechScaleResponse(
+      computedScaleAttributes,
+      attributes.requestScaleAttributes
+    );
 
-      speech = `Not enough info. I need ${remaining[0]}.`;
-    } else {
-      speech = speechScaleResponse(
-        computedScaleAttributes,
-        attributes.requestScaleAttributes
-      );
+    // TODO turn me into a function
+    speech = `${speech} ${scaleAudioResponse(computedScaleAttributes)}`;
+    speech = `${speech} ${randomSpeech(ANOTHER)}`;
 
-      // TODO turn me into a function
-      speech = `${speech} ${scaleAudioResponse(computedScaleAttributes)}`;
-      speech = `${speech} ${randomSpeech(ANOTHER)}`;
-
-      // remember where we're up to
-      const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-      sessionAttributes["scaleAttributes"] = computedScaleAttributes;
-      handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
-    }
+    // remember where we're up to
+    const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+    sessionAttributes["scaleAttributes"] = computedScaleAttributes;
+    handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
 
     console.log(speech);
 
