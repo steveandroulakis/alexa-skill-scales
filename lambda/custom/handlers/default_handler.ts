@@ -10,7 +10,6 @@ import {
   ScaleAttributeSet,
   getDefaultScaleAttributes,
   computeScaleAttributes,
-  remainingScaleAttributes,
   speechScaleResponse,
   scaleAudioResponse
 } from "../helpers/scales/scale_functions";
@@ -120,7 +119,7 @@ export const HelpIntentHandler: RequestHandler = {
       (handlerInput.requestEnvelope.request.intent.name ===
         "AMAZON.HelpIntent" ||
         handlerInput.requestEnvelope.request.intent.name ===
-          "AMAZON.FallBackIntent")
+          "AMAZON.FallbackIntent")
     );
   },
   handle: function(handlerInput: HandlerInput) {
@@ -147,7 +146,7 @@ export const StopIntentHandler: RequestHandler = {
   handle: function(handlerInput: HandlerInput) {
     // console.log(JSON.stringify(handlerInput));
     const resp = handlerInput.responseBuilder
-      .speak(polly("See you soon."))
+      .speak(polly("Until next time, goodbye."))
       .withShouldEndSession(true)
       .getResponse();
     return resp;

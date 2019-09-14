@@ -2,7 +2,8 @@
   "interactionModel": {
     "languageModel": {
       "invocationName": "scales",
-      "intents": [{
+      "intents": [
+        {
           "name": "AMAZON.CancelIntent",
           "samples": []
         },
@@ -78,7 +79,8 @@
         },
         {
           "name": "PlayScaleIntent",
-          "slots": [{
+          "slots": [
+            {
               "name": "key",
               "type": "KEY"
             },
@@ -5243,9 +5245,10 @@
           ]
         }
       ],
-      "types": [{
-          "name": "KEY",
-          "values": [{
+      "types": [
+        {
+          "values": [
+            {
               "id": "A",
               "name": {
                 "value": "a.",
@@ -5363,11 +5366,12 @@
                 ]
               }
             }
-          ]
+          ],
+          "name": "KEY"
         },
         {
-          "name": "MODE",
-          "values": [{
+          "values": [
+            {
               "id": "harmonic_minor",
               "name": {
                 "value": "harmonic minor",
@@ -5400,11 +5404,12 @@
                 ]
               }
             }
-          ]
+          ],
+          "name": "MODE"
         },
         {
-          "name": "OCTAVE",
-          "values": [{
+          "values": [
+            {
               "id": "2",
               "name": {
                 "value": "two octaves",
@@ -5423,15 +5428,17 @@
                 ]
               }
             }
-          ]
+          ],
+          "name": "OCTAVE"
         },
         {
-          "name": "SPEED",
-          "values": [{
+          "values": [
+            {
               "id": "fast",
               "name": {
                 "value": "fast",
                 "synonyms": [
+                  "speed up",
                   "quickly",
                   "fast paced",
                   "fast pace",
@@ -5459,6 +5466,8 @@
               "name": {
                 "value": "slow",
                 "synonyms": [
+                  "slow down",
+                  "slower",
                   "slowly",
                   "slow pace",
                   "slowed",
@@ -5466,9 +5475,11 @@
                 ]
               }
             }
-          ]
+          ],
+          "name": "SPEED"
         }
       ]
     }
-  }
+  },
+  "version": "15"
 }

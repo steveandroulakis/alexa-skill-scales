@@ -120,13 +120,13 @@ export function computeScaleFilename(computedScale: ScaleAttributes) {
 export function scaleAudioResponse(
   computedScaleAttributes: ScaleAttributes
 ): string {
-  const ssmlBreak = `<break time="0.3s"/>`;
+  const ssmlBreak = `<break time="1s"/>`;
 
   const audioTag = `<audio src="${
     CONSTANTS.CONFIG.SCALE_AUDIO_URL_PREFIX
   }${computeScaleFilename(computedScaleAttributes)}" />`;
 
-  const speech = `${ssmlBreak} ${audioTag} ${audioTag}`;
+  const speech = `${ssmlBreak} ${audioTag} ${audioTag} ${ssmlBreak}`;
 
   return speech;
 }

@@ -14,7 +14,7 @@ export const HINT = [
   "Try asking me to play F sharp minor for two octaves",
   "For example, ask me to play see harmonic minor, slow",
   "Try asking for bee flat minor for two octaves at a fast speed",
-  "How about asking me for an ay minor for one octave at normal speed",
+  "How about asking me for an ay minor for one octave at moderate speed",
   "How about a dee natural minor scale?"
 ];
 
@@ -32,13 +32,13 @@ export const ANOTHER = [
   "Another?",
   "Again?",
   "Want that again?",
-  "Shall I repeat?",
+  "Will I repeat?",
   "Shall I play it again?",
   "One more time?",
   "One more listen?",
   "Do you want to hear it again?",
-  "Listen to another?",
-  "I'll play another time?",
+  "Do you want to listen to another?",
+  "Shall I play another time?",
   "Can I repeat that?",
   "Once more?"
 ];

@@ -5,32 +5,55 @@
         "endpoint": {
           "uri": "arn:aws:lambda:us-west-2:293016420137:function:scales-dev-execute"
         },
-        "interfaces": [{
+        "interfaces": [
+          {
             "type": "ALEXA_PRESENTATION_APL"
           },
           {
             "type": "RENDER_TEMPLATE"
           }
-        ],
-        "isDialogUsedByLocale": {}
+        ]
       }
     },
     "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "locales": {
+        "en-AU": {}
+      },
+      "allowsPurchases": false,
+      "usesPersonalInfo": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false
+    },
     "publishingInformation": {
       "locales": {
         "en-AU": {
           "name": "Scales",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/9548/22200462728b4f81b4917602239ea65b/APP_ICON?versionId=xl.IH3fN_UGbP9DDE52yulQ5FN2VeqdU&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190914T074646Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=51ed2de5d52ac666d41c849dcbf6fa822e7ca4e9c9698ddd990cd401acb02081",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/3ac9/1e3ae3214dfa4520bdfb95e49e5fccac/APP_ICON_LARGE?versionId=.HvqVkHmkD7UpOFHu8sAGbk4IBFG6b_I&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190914T074646Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=666ad3653905f3a19af6bb6ade5104a51102d08305688ed9c836040c51c2084e",
           "summary": "Musical scales",
-          "description": "Musical scales",
+          "description": "SNAPPY DESCRIPTION, WOAH THIS SKILL IS AMAZING. But seriously it's a good start. Needs basic screens.\n\ne.g. play B flat major for 2 octaves at fast pace\n\nValid keys: A, B-flat, B, C, C-sharp, D, E, E-flat, F, F-sharp, G, A-flat\nScales: major, natural minor, harmonic minor\nSpeeds: slow, moderate, fast",
           "examplePhrases": [
-            "launch scales",
-            "ask scales for C minor",
-            "ask scales for help"
+            "Alexa, launch scales",
+            "Alexa, ask scales for B minor one octave",
+            "Alexa, ask scales for help"
+          ],
+          "keywords": [
+            "scales",
+            "piano",
+            "violin",
+            "guitar",
+            "major",
+            "minor",
+            "instrument",
+            "music",
+            "education"
           ]
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "Sample Testing Instructions.",
+      "testingInstructions": "play KEY MODE for X OCTAVES at SPEED\ne.g. play B flat major for 2 octaves at fast pace\n\nValid keys: A B-flat B C C-sharp D E E-flat F F-sharp G A-flat\nScales: major natural_minor harmonic_minor\nSpeeds: slow, moderate, fast",
       "category": "EDUCATION_AND_REFERENCE",
       "distributionCountries": []
     }
