@@ -117,10 +117,7 @@ export const AnyIntentRequest: RequestHandler = {
 
     const resp = handlerInput.responseBuilder.speak(prompt);
 
-    const closeSession = handlerInput.attributesManager.getSessionAttributes()
-      .closeSession;
-
-    resp.withShouldEndSession(closeSession);
+    resp.withShouldEndSession(false);
     resp.withSimpleCard("androula@ debug skeleton", prompt);
 
     return resp.getResponse();

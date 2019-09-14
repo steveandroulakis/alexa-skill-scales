@@ -1,4 +1,3 @@
 {
-    "LOCALDB_TABLE": "tablename_here",
-    "CONVERSATION_URL": "https://s3-us-west-2.amazonaws.com/steve-choose-your-own-adventure/conversation.json"
+    "LOCALDB_TABLE": "scales"
 }
