@@ -125,10 +125,10 @@ export const HERE_IS = [
 
 export const WHAT_SCALE = [
   `What scale can I play? Or ask me to stop.`,
-  `What scale can I play? Perhaps ${scaleSuggestion()}?`,
-  `What scale would you like? Maybe a ${scaleSuggestion()} scale?`,
+  `Perhaps I can play ${scaleSuggestion()}? What scale do you want?`,
+  `What scale would you like? Maybe a ${scaleSuggestion()} scale? Which one.`,
   `What scale would you like? Or just tell me to stop.`,
-  `What scale can I play for you? Perhaps ${scaleSuggestion()}?`
+  `Perhaps you might like ${scaleSuggestion()}? What scale can I play for you? `
 ];
 
 export interface ScaleResponsePayload {
