@@ -1,0 +1,21 @@
+.vscode/
+  
+/**/.DS_Store
+/**/.build
+
+# package directories
+lambda/custom/node_modules
+lambda/custom/dist
+jspm_packages
+
+# Serverless directories
+.serverless
+lambda/node_modules_dev/*
+lambda/node_modules/*
+lambda/tmp/index.zip
+lambda/node_modules_prod/*
+
+lambda/custom/**/*.js
+lambda/custom/**/*.map
+
+!lambda/custom/**/webpack.config.js
