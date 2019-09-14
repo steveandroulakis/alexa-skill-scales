@@ -8,9 +8,10 @@ import {
   StopIntentHandler,
   SessionEndedHandler,
   AnyIntentRequest,
-  PlayScaleIntent
+  PlayScaleIntent,
+  HelpIntentHandler
 } from "./handlers/default_handler";
-import { preInterceptor } from "./handlers/interceptors";
+import { preInterceptor, postInterceptor } from "./handlers/interceptors";
 import { CONSTANTS } from "./helpers/constants";
 
 const skillBuilder = Alexa.SkillBuilders.standard();
@@ -19,6 +20,7 @@ export const handler = skillBuilder
   .addRequestHandlers(
     LaunchRequestHandler,
     PlayScaleIntent,
+    HelpIntentHandler,
     StopIntentHandler,
     AnyIntentRequest,
     SessionEndedHandler
@@ -27,6 +29,7 @@ export const handler = skillBuilder
   .withTableName(CONSTANTS.CONFIG.LOCALDB_TABLE)
   .withAutoCreateTable(true)
   .addRequestInterceptors(preInterceptor)
+  .addResponseInterceptors(postInterceptor)
   .lambda();
 
 exports.typescriptTemplate = handler;

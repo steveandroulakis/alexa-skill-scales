@@ -23,7 +23,9 @@
           "summary": "Musical scales",
           "description": "Musical scales",
           "examplePhrases": [
-            "ask scales for B flat minor"
+            "launch scales",
+            "ask scales for C minor",
+            "ask scales for help"
           ]
         }
       },

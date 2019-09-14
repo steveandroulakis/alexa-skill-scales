@@ -3,12 +3,7 @@
 
 import { RequestHandler, HandlerInput } from "ask-sdk";
 import { STATES } from "../helpers/state";
-import {
-  getSlotVal,
-  dynamicEntitiesFromValues,
-  findClosestSlot,
-  getSlotID
-} from "../helpers/slots";
+import { getSlotID } from "../helpers/slots";
 import { IntentRequest } from "ask-sdk-model";
 import {
   ScaleAttributes,
@@ -17,37 +12,43 @@ import {
   computeScaleAttributes,
   remainingScaleAttributes,
   speechScaleResponse,
-  computeScaleFilename
+  scaleAudioResponse
 } from "../helpers/scales/scale_functions";
-import { CONSTANTS } from "../helpers/constants";
+import {
+  randomSpeech,
+  ANOTHER,
+  INTRO,
+  polly,
+  INTRO_BRIEF
+} from "../helpers/constants";
 
 // TODO: This intent has been hard-wired to accept requests from
 // anything not implemented (e.g. 'help', 'yes', 'no')
 // Progressively build handlers for these intents and remove from here
 export const LaunchRequestHandler: RequestHandler = {
   canHandle: function(handlerInput: HandlerInput) {
-    return (
-      handlerInput.requestEnvelope.request.type === "LaunchRequest" ||
-      (handlerInput.requestEnvelope.request.type === "IntentRequest" &&
-        (handlerInput.requestEnvelope.request.intent.name ===
-          "AMAZON.YesIntent" ||
-          handlerInput.requestEnvelope.request.intent.name ===
-            "AMAZON.NoIntent" ||
-          handlerInput.requestEnvelope.request.intent.name ===
-            "AMAZON.HelpIntent" ||
-          handlerInput.requestEnvelope.request.intent.name ===
-            "AMAZON.RepeatIntent" ||
-          handlerInput.requestEnvelope.request.intent.name ===
-            "AMAZON.FallbackIntent"))
-    );
+    return handlerInput.requestEnvelope.request.type === "LaunchRequest";
   },
-  handle: function(handlerInput: HandlerInput) {
+  handle: async function(handlerInput: HandlerInput) {
     handlerInput.attributesManager.setSessionAttributes({
       state: STATES.DEFAULT
     });
 
+    const attributes = await handlerInput.attributesManager.getPersistentAttributes();
+
+    let speech = INTRO;
+
+    if ("invocationCount" in attributes) {
+      if (
+        attributes["invocationCount"] > 3 &&
+        attributes["invocationCount"] % 5 !== 0
+      ) {
+        speech = INTRO_BRIEF;
+      }
+    }
+
     const resp = handlerInput.responseBuilder
-      .speak("Hello")
+      .speak(polly(speech))
       .withShouldEndSession(false)
       .getResponse();
     return resp;
@@ -58,7 +59,11 @@ export const PlayScaleIntent: RequestHandler = {
   canHandle: function(handlerInput: HandlerInput) {
     return (
       handlerInput.requestEnvelope.request.type === "IntentRequest" &&
-      handlerInput.requestEnvelope.request.intent.name === "PlayScaleIntent"
+      (handlerInput.requestEnvelope.request.intent.name === "PlayScaleIntent" ||
+        handlerInput.requestEnvelope.request.intent.name ===
+          "AMAZON.YesIntent" ||
+        handlerInput.requestEnvelope.request.intent.name ===
+          "AMAZON.RepeatIntent")
     );
   },
   handle: async function(handlerInput: HandlerInput) {
@@ -84,13 +89,16 @@ export const PlayScaleIntent: RequestHandler = {
 
     const remaining = remainingScaleAttributes(computedScaleAttributes);
 
-    console.log(`COMPUTED ${JSON.stringify(computedScaleAttributes)}`);
-    console.log(`REMAINING ${JSON.stringify(remaining)}`);
+    // console.log(`COMPUTED ${JSON.stringify(computedScaleAttributes)}`);
+    // console.log(`REMAINING ${JSON.stringify(remaining)}`);
 
     let speech = ``;
 
     if (remaining.length >= 1) {
-      speech = `Not enough info. I need ${remaining[0].input}.`;
+      console.log("REMAINING");
+      console.log(remaining);
+
+      speech = `Not enough info. I need ${remaining[0]}.`;
     } else {
       speech = speechScaleResponse(
         computedScaleAttributes,
@@ -98,15 +106,39 @@ export const PlayScaleIntent: RequestHandler = {
       );
 
       // TODO turn me into a function
-      speech = `${speech} <break time="0.5s"/> <audio src="${
-        CONSTANTS.CONFIG.SCALE_AUDIO_URL_PREFIX
-      }${computeScaleFilename(
-        computedScaleAttributes
-      )}" /> <break time="0.5s"/> Another?`;
+      speech = `${speech} ${scaleAudioResponse(computedScaleAttributes)}`;
+      speech = `${speech} ${randomSpeech(ANOTHER)}`;
+
+      // remember where we're up to
+      const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+      sessionAttributes["scaleAttributes"] = computedScaleAttributes;
+      handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
     }
 
+    console.log(speech);
+
     const resp = handlerInput.responseBuilder
-      .speak(speech)
+      .speak(polly(speech))
+      .withShouldEndSession(false)
+      .getResponse();
+    return resp;
+  }
+};
+
+export const HelpIntentHandler: RequestHandler = {
+  canHandle: function(handlerInput: HandlerInput) {
+    return (
+      handlerInput.requestEnvelope.request.type === "IntentRequest" &&
+      (handlerInput.requestEnvelope.request.intent.name ===
+        "AMAZON.HelpIntent" ||
+        handlerInput.requestEnvelope.request.intent.name ===
+          "AMAZON.FallBackIntent")
+    );
+  },
+  handle: function(handlerInput: HandlerInput) {
+    // console.log(JSON.stringify(handlerInput));
+    const resp = handlerInput.responseBuilder
+      .speak(polly(INTRO))
       .withShouldEndSession(false)
       .getResponse();
     return resp;
@@ -120,13 +152,14 @@ export const StopIntentHandler: RequestHandler = {
       (handlerInput.requestEnvelope.request.intent.name ===
         "AMAZON.CancelIntent" ||
         handlerInput.requestEnvelope.request.intent.name ===
-          "AMAZON.StopIntent")
+          "AMAZON.StopIntent" ||
+        handlerInput.requestEnvelope.request.intent.name === "AMAZON.NoIntent")
     );
   },
   handle: function(handlerInput: HandlerInput) {
     // console.log(JSON.stringify(handlerInput));
     const resp = handlerInput.responseBuilder
-      .speak("Goodbye")
+      .speak(polly("See you soon."))
       .withShouldEndSession(true)
       .getResponse();
     return resp;
@@ -178,7 +211,7 @@ export const AnyIntentRequest: RequestHandler = {
       }
     }
 
-    const resp = handlerInput.responseBuilder.speak(prompt);
+    const resp = handlerInput.responseBuilder.speak(polly(prompt));
 
     resp.withShouldEndSession(false);
     resp.withSimpleCard("androula@ debug skeleton", prompt);

@@ -1,0 +1,55 @@
+Serverless: Bundling with Webpack...
+Time: [1m2506[39m[22mms
+Built at: 14/09/2019 [1m12:28:28[39m[22m
+   [1mAsset[39m[22m      [1mSize[39m[22m  [1mChunks[39m[22m  [1m[39m[22m           [1m[39m[22m[1mChunk Names[39m[22m
+[1m[32mindex.js[39m[22m  2.64 MiB       [1m0[39m[22m  [1m[32m[emitted][39m[22m  index
+Entrypoint [1mindex[39m[22m = [1m[32mindex.js[39m[22m
+  [5] [1m./node_modules/ask-sdk-runtime/dist/index.js[39m[22m 1.88 KiB {[1m[33m0[39m[22m}[1m[32m [built][39m[22m
+  [7] [1m./node_modules/ask-sdk-core/dist/index.js[39m[22m 3.63 KiB {[1m[33m0[39m[22m}[1m[32m [built][39m[22m
+ [24] [1m./node_modules/ask-sdk-core/dist/response/TextContentHelper.js[39m[22m 1.76 KiB {[1m[33m0[39m[22m}[1m[32m [built][39m[22m
+ [35] [1m./node_modules/ask-sdk/dist/skill/factory/StandardSkillFactory.js[39m[22m 2.95 KiB {[1m[33m0[39m[22m}[1m[32m [built][39m[22m
+ [36] [1m./node_modules/ask-sdk-core/dist/attributes/AttributesManagerFactory.js[39m[22m 8.44 KiB {[1m[33m0[39m[22m}[1m[32m [built][39m[22m
+ [41] [1m./node_modules/ask-sdk-core/dist/response/ResponseFactory.js[39m[22m 10 KiB {[1m[33m0[39m[22m}[1m[32m [built][39m[22m
+ [44] [1m./node_modules/ask-sdk-core/dist/skill/CustomSkill.js[39m[22m 6.86 KiB {[1m[33m0[39m[22m}[1m[32m [built][39m[22m
+ [45] [1m./node_modules/ask-sdk-core/dist/skill/factory/BaseSkillFactory.js[39m[22m 4.92 KiB {[1m[33m0[39m[22m}[1m[32m [built][39m[22m
+ [46] [1m./node_modules/ask-sdk-core/dist/skill/factory/CustomSkillFactory.js[39m[22m 2.05 KiB {[1m[33m0[39m[22m}[1m[32m [built][39m[22m
+ [47] [1m./node_modules/ask-sdk-dynamodb-persistence-adapter/dist/index.js[39m[22m 1.04 KiB {[1m[33m0[39m[22m}[1m[32m [built][39m[22m
+ [75] [1m./index.ts[39m[22m 1.01 KiB {[1m[33m0[39m[22m}[1m[32m [built][39m[22m
+ [76] [1m./node_modules/ask-sdk/dist/index.js[39m[22m 3.01 KiB {[1m[33m0[39m[22m}[1m[32m [built][39m[22m
+[672] [1m./node_modules/ask-sdk/dist/skill/SkillBuilders.js[39m[22m 1.28 KiB {[1m[33m0[39m[22m}[1m[32m [built][39m[22m
+[673] [1m./handlers/default_handler.ts[39m[22m 4.69 KiB {[1m[33m0[39m[22m}[1m[32m [built][39m[22m
+[674] [1m./helpers/state.ts[39m[22m 171 bytes {[1m[33m0[39m[22m}[1m[32m [built][39m[22m
+    + 660 hidden modules
+
+[1m[33mWARNING in configuration
+The 'mode' option has not been set, webpack will fallback to 'production' for this value. Set 'mode' option to 'development' or 'production' to enable defaults for each environment.
+You can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/concepts/mode/[39m[22m
+Serverless: Packaging service...
+Serverless: Warning! You are using an old syntax for alexaSkill which doesn't restrict the invocation solely to your skill. Please refer to the documentation for additional information.
+Serverless: Creating Stack...
+Serverless: Checking Stack create progress...
+.....
+Serverless: Stack create finished...
+Serverless: Uploading CloudFormation file to S3...
+Serverless: Uploading artifacts...
+Serverless: Uploading service scales.zip file to S3 (501.09 KB)...
+Serverless: Validating template...
+Serverless: Updating Stack...
+Serverless: Checking Stack update progress...
+..................
+Serverless: Stack update finished...
+Service Information
+service: scales
+stage: dev
+region: us-west-2
+stack: scales-dev
+resources: 6
+api keys:
+  None
+endpoints:
+  None
+functions:
+  execute: scales-dev-execute
+layers:
+  None
+Serverless: Run the "serverless" command to setup monitoring, troubleshooting and testing.

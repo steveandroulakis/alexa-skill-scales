@@ -1,0 +1,32 @@
+{
+    "scale": {
+        "key": {
+            "A": "A.",
+            "Bb": "B flat",
+            "B": "B",
+            "C": "C",
+            "Db": "C sharp",
+            "D": "D",
+            "E": "E",
+            "Eb": "E flat",
+            "F": "F",
+            "Gb": "F sharp",
+            "G": "G",
+            "Ab": "A. flat"
+        },
+        "mode": {
+            "major": "major",
+            "natural_minor": "natural minor",
+            "harmonic_minor": "harmonic minor"
+        },
+        "octave": {
+            "1": "one octave",
+            "2": "two octaves"
+        },
+        "speed": {
+            "fast": "fast",
+            "normal": "normal",
+            "slow": "slow"
+        }
+    }
+}

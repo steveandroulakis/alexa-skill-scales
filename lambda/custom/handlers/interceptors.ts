@@ -38,3 +38,23 @@ export const preInterceptor = {
     }
   }
 };
+
+export const postInterceptor = {
+  async process(handlerInput: HandlerInput) {
+    console.log(
+      "POST INTERCEPTOR SESSION VARIABLES = " +
+        JSON.stringify(handlerInput.attributesManager.getSessionAttributes())
+    );
+
+    const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+
+    if ("scaleAttributes" in sessionAttributes) {
+      //  sessionAttributes["scaleAttributes"]["key"] = "C"; // we don't want to persist the key
+      const attributes = await handlerInput.attributesManager.getPersistentAttributes();
+      attributes["scaleAttributes"] = sessionAttributes["scaleAttributes"];
+      handlerInput.attributesManager.setPersistentAttributes(attributes);
+
+      await handlerInput.attributesManager.savePersistentAttributes();
+    }
+  }
+};
