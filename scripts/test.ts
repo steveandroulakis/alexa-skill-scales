@@ -171,3 +171,9 @@ export function scaleSuggestion(attribute: string): string {
 }
 
 console.log(scaleSuggestion("key"));
+
+const keyTest = "E.";
+if (keyTest.match(/^[AEF]/i)) {
+  // alphabet letters found
+  console.log("found");
+}

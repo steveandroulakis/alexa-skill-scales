@@ -36,8 +36,17 @@ export function randomScaleAttribute(attribute: string): string {
   return scaleLibrary[keys[rand]];
 }
 
+export function formatKey(key: string): string {
+  if (key.match(/^[AEF]/i)) {
+    return `an ${key}`;
+  }
+
+  return `a ${key}`;
+}
+
 export function scaleSuggestion(): string {
-  return `${randomScaleAttribute("key")} ${randomScaleAttribute("mode")}`;
+  return `${formatKey(randomScaleAttribute("key"))}
+  ${randomScaleAttribute("mode")} scale`;
 }
 
 export function scaleHint() {
@@ -46,8 +55,8 @@ export function scaleHint() {
     `For example, ask me to play ${scaleSuggestion()}, slow`,
     `Try asking for ${scaleSuggestion()} for two octaves at a fast speed`,
     `How about asking me for ${scaleSuggestion()} for one octave at moderate speed`,
-    `How about a ${scaleSuggestion()} scale?`,
-    `Try asking for ${scaleSuggestion()} scale?`,
+    `How about a ${scaleSuggestion()}?`,
+    `Try asking for ${scaleSuggestion()}?`,
     `What about ${scaleSuggestion()} at a medium pace?`,
     `For example, play ${scaleSuggestion()} over one octave.`
   ];
@@ -137,11 +146,11 @@ export const HERE_IS = [
 
 export const WHAT_SCALE = [
   `What scale can I play? Or ask me to stop.`,
-  `Perhaps I can play ${scaleSuggestion()}? What scale do you want?`,
-  `I rather like ${scaleSuggestion()}? What scale do you want?`,
-  `What scale would you like? Maybe a ${scaleSuggestion()} scale? Which one.`,
-  `What scale would you like? Or just tell me to stop.`,
-  `Perhaps you might like ${scaleSuggestion()}? What scale can I play for you? `
+  `Perhaps I can play ${scaleSuggestion()}. What shall I play?`,
+  `I rather like ${scaleSuggestion()}. What would you like.`,
+  `Maybe I could play a ${scaleSuggestion()}. Which one will you have?`,
+  `What scale would you like. Or just tell me to stop.`,
+  `Perhaps you might like ${scaleSuggestion()}. What can I play for you? `
 ];
 
 export interface ScaleResponsePayload {
