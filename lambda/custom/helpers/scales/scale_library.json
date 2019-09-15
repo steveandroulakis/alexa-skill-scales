@@ -1,18 +1,18 @@
 {
     "scale": {
         "key": {
-            "A": "Ay",
-            "Bb": "Bee-flat",
-            "B": "Bee",
-            "C": "C",
-            "Db": "C sharp",
-            "D": "D",
+            "A": "Ay <break time='0.1s'/>",
+            "Bb": "B <break time='0.1s'/> flat",
+            "B": "B. <break time='0.1s'/>",
+            "C": "C <break time='0.1s'/>",
+            "Db": "C <break time='0.1s'/> sharp",
+            "D": "Dee <break time='0.1s'/>",
             "E": "E",
             "Eb": "E flat",
-            "F": "F",
-            "Gb": "F sharp",
-            "G": "G",
-            "Ab": "Ay flat"
+            "F": "F <break time='0.1s'/>",
+            "Gb": "F <break time='0.1s'/> sharp",
+            "G": "G <break time='0.1s'/>",
+            "Ab": "Ay <break time='0.1s'/> flat"
         },
         "mode": {
             "major": "major",
