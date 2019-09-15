@@ -12,7 +12,10 @@
         },
         {
           "name": "AMAZON.NoIntent",
-          "samples": []
+          "samples": ["nah I'm good",
+            "nah I'm good thanks",
+            "nah I'm good thanks mate"
+          ]
         },
         {
           "name": "AMAZON.HelpIntent",
@@ -21,13 +24,16 @@
             "what scales do you have",
             "what can you do",
             "what else can I do",
+            "what else can you do",
             "what modes do you have",
             "what keys can you play",
             "what notes can you play",
             "play an arpeggio",
             "can you play an arpeggio",
+            "can you do melodic minor",
             "play melodic minor",
-            "do you have melodic minor"
+            "do you have melodic minor",
+            "what else can I say"
           ]
         },
         {
@@ -5292,7 +5298,15 @@
             "change the {key}",
             "change the {mode}",
             "change the {octave}",
-            "change the {speed}"
+            "change the {speed}",
+            "now do it {speed}",
+            "now do it at {speed}",
+            "now do it at {speed} speed",
+            "now do it at {speed} pace",
+            "now do it for {octave}",
+            "now do a {key} {mode}",
+            "now do a {mode}",
+            "now do a {key}"
           ]
         }
       ],

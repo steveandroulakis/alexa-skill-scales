@@ -74,7 +74,8 @@ export const ANOTHER = [
   "Do you want to listen to another?",
   "Shall I play another time?",
   "Can I repeat that?",
-  "Once more?"
+  "Once more?",
+  "Another go?"
 ];
 
 export const ACKNOWLEDGE = [
@@ -94,14 +95,15 @@ export const ACKNOWLEDGE = [
   "",
   "Okay.",
   "Alright.",
-  "No worries.",
   "Okay.",
+  "I've got this.",
   "No worries.",
   "Okay.",
   "Okay.",
   "No worries.",
   "Great.",
   "Fantastic.",
+  "Lovely.",
   "No problem.",
   "Let's do it.",
   "Let's go.",
@@ -121,6 +123,12 @@ export const HERE_IS = [
   "I'll do",
   "Here comes",
   "Here goes",
+  "Watch out, here is",
+  "Look out, it's",
+  "",
+  "",
+  "",
+  "",
   "",
   "",
   "",
@@ -130,6 +138,7 @@ export const HERE_IS = [
 export const WHAT_SCALE = [
   `What scale can I play? Or ask me to stop.`,
   `Perhaps I can play ${scaleSuggestion()}? What scale do you want?`,
+  `I rather like ${scaleSuggestion()}? What scale do you want?`,
   `What scale would you like? Maybe a ${scaleSuggestion()} scale? Which one.`,
   `What scale would you like? Or just tell me to stop.`,
   `Perhaps you might like ${scaleSuggestion()}? What scale can I play for you? `
