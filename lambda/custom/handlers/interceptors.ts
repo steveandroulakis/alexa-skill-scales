@@ -8,14 +8,14 @@ export const preInterceptor = {
   //   );
   // }
   async process(handlerInput: HandlerInput) {
-    console.log(
-      "REQUEST ENVELOPE = " + JSON.stringify(handlerInput.requestEnvelope)
-    );
+    // console.log(
+    //   "REQUEST ENVELOPE = " + JSON.stringify(handlerInput.requestEnvelope)
+    // );
 
     if ("session" in handlerInput.requestEnvelope) {
       if (handlerInput.requestEnvelope.session.new) {
         const attributes = await handlerInput.attributesManager.getPersistentAttributes();
-        console.log(attributes);
+        // console.log(attributes);
 
         if ("invocationCount" in attributes) {
           attributes["invocationCount"] = attributes["invocationCount"] + 1;

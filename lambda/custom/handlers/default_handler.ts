@@ -153,7 +153,7 @@ export const PlayScaleIntent: RequestHandler = {
     sessionAttributes["scaleAttributes"] = computedScaleAttributes;
     handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
 
-    console.log(speech);
+    // console.log(speech);
 
     const scaleResponse: ScaleResponsePayload = {
       speech: speech,

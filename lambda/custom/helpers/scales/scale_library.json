@@ -1,7 +1,7 @@
 {
     "scale": {
         "key": {
-            "A": "Ay <break time='0.1s'/>",
+            "A": "A. <break time='0.1s'/>",
             "Bb": "B. <break time='0.1s'/> flat",
             "B": "B. <break time='0.1s'/>",
             "C": "C <break time='0.1s'/>",
@@ -12,7 +12,7 @@
             "F": "F <break time='0.1s'/>",
             "Gb": "F <break time='0.1s'/> sharp",
             "G": "G <break time='0.1s'/>",
-            "Ab": "Ay <break time='0.1s'/> flat"
+            "Ab": "A. <break time='0.1s'/> flat"
         },
         "mode": {
             "major": "major",
