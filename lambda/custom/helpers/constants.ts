@@ -55,7 +55,7 @@ export function scaleHint(suggestion: string) {
     `For example, ask me to play ${suggestion}, slow`,
     `Try asking for ${suggestion} for two octaves at a fast speed`,
     `How about asking me for ${suggestion} for one octave at moderate speed`,
-    `How about a ${suggestion}?`,
+    `How about ${suggestion}?`,
     `Try asking for ${suggestion}?`,
     `What about ${suggestion} at a medium pace?`,
     `For example, play ${suggestion} over one octave.`
