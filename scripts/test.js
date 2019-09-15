@@ -97,13 +97,6 @@ const output = remainingScaleAttributes(computedScaleAttributes);
 console.log(output);
 console.log(speechScaleResponse(computedScaleAttributes, attributes.requestScaleAttributes));
 console.log(computeScaleFilename(computedScaleAttributes));
-function randomScaleAttribute(attribute) {
-    const library = scale_library_json_1.default["scale"][attribute];
-    const keys = Object.keys(library);
-    const rand = Math.floor(Math.random() * keys.length);
-    return library[keys[rand]];
-}
-exports.randomScaleAttribute = randomScaleAttribute;
 function scaleSuggestion(attribute) {
     return `${randomScaleAttribute("key")} ${randomScaleAttribute("mode")}`;
 }
@@ -114,4 +107,14 @@ if (keyTest.match(/^[AEF]/i)) {
     // alphabet letters found
     console.log("found");
 }
+function randomScaleAttribute(attribute) {
+    const scaleLibrary = scale_library_json_1.default["scale"][attribute];
+    const keys = Object.keys(scaleLibrary);
+    const rand = Math.floor(Math.random() * keys.length);
+    console.log(keys.length);
+    console.log(rand);
+    return scaleLibrary[keys[rand]];
+}
+exports.randomScaleAttribute = randomScaleAttribute;
+console.log(randomScaleAttribute("key"));
 //# sourceMappingURL=test.js.map

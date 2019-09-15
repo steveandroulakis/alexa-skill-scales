@@ -39,7 +39,9 @@
         {
           "name": "AMAZON.StopIntent",
           "samples": [
-            "go away"
+            "go away",
+            "can you stop",
+            "can you please stop"
           ]
         },
         {

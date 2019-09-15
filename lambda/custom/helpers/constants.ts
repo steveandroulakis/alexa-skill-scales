@@ -49,23 +49,50 @@ export function scaleSuggestion(): string {
   ${randomScaleAttribute("mode")} scale`;
 }
 
-export function scaleHint() {
+export function scaleHint(suggestion: string) {
   const hintSpeech = [
-    `Try asking me to play ${scaleSuggestion()} for two octaves`,
-    `For example, ask me to play ${scaleSuggestion()}, slow`,
-    `Try asking for ${scaleSuggestion()} for two octaves at a fast speed`,
-    `How about asking me for ${scaleSuggestion()} for one octave at moderate speed`,
-    `How about a ${scaleSuggestion()}?`,
-    `Try asking for ${scaleSuggestion()}?`,
-    `What about ${scaleSuggestion()} at a medium pace?`,
-    `For example, play ${scaleSuggestion()} over one octave.`
+    `Try asking me to play ${suggestion} for two octaves`,
+    `For example, ask me to play ${suggestion}, slow`,
+    `Try asking for ${suggestion} for two octaves at a fast speed`,
+    `How about asking me for ${suggestion} for one octave at moderate speed`,
+    `How about a ${suggestion}?`,
+    `Try asking for ${suggestion}?`,
+    `What about ${suggestion} at a medium pace?`,
+    `For example, play ${suggestion} over one octave.`
   ];
   return randomSpeech(hintSpeech);
 }
 
-export const INTRO = `Scales can play in all keys from A to G, including sharps and flats. I know three scales right now. Major, Natural Minor, and Harmonic minor. I can play up to two octaves, at a few speeds, slow, moderate, and fast. ${scaleHint()}. What shall I play?`;
+export function INTRO(suggestion: string) {
+  return `Scales can play in all keys from A to G, including sharps and flats. I know three scales right now. Major, Natural Minor, and Harmonic minor. I can play up to two octaves, at a few speeds, slow, moderate, and fast. ${scaleHint(
+    suggestion
+  )}. What can I play for you?`;
+}
 
-export const INTRO_BRIEF = `Scales can play all keys, at multiple speeds. ${scaleHint()}. What shall I play?`;
+export function INTRO_BRIEF(suggestion: string) {
+  return `Scales can play major, natural minor and harmonic minor. ${scaleHint(
+    suggestion
+  )}. What shall I play?`;
+}
+
+export function WHAT_SCALE(suggestion: string) {
+  const smallPause = `<break time="0.4s"/>`;
+
+  const PHRASES = [
+    `What scale can I play? Or ask me to stop.`,
+    `What scale can I play? Or ask me to stop.`,
+    `Perhaps I can play ${suggestion}, at a fast pace. ${smallPause} What shall I play?`,
+    `Perhaps I can play ${suggestion}. ${smallPause} What can I play?`,
+    `I rather like ${suggestion}. ${smallPause} What would you like.`,
+    `Maybe I could play ${suggestion}. ${smallPause} Which one will you have?`,
+    `Maybe I could play ${suggestion} at a moderate pace. ${smallPause} Which one will you have?`,
+    `What scale would you like. Or just tell me to stop.`,
+    `Perhaps you might like ${suggestion} over two octaves. ${smallPause} What can I play for you?`,
+    `Perhaps you might like ${suggestion}. ${smallPause} What can I play?`
+  ];
+
+  return randomSpeech(PHRASES);
+}
 
 export const ANOTHER = [
   "Another?",
@@ -142,15 +169,6 @@ export const HERE_IS = [
   "",
   "",
   ""
-];
-
-export const WHAT_SCALE = [
-  `What scale can I play? Or ask me to stop.`,
-  `Perhaps I can play ${scaleSuggestion()}. What shall I play?`,
-  `I rather like ${scaleSuggestion()}. What would you like.`,
-  `Maybe I could play a ${scaleSuggestion()}. Which one will you have?`,
-  `What scale would you like. Or just tell me to stop.`,
-  `Perhaps you might like ${scaleSuggestion()}. What can I play for you? `
 ];
 
 export interface ScaleResponsePayload {

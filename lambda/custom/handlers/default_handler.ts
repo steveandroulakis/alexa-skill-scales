@@ -22,7 +22,8 @@ import {
   ScaleResponsePayload,
   GOODBYE,
   isOneShot,
-  WHAT_SCALE
+  WHAT_SCALE,
+  scaleSuggestion
 } from "../helpers/constants";
 
 // TODO: This intent has been hard-wired to accept requests from
@@ -39,14 +40,14 @@ export const LaunchRequestHandler: RequestHandler = {
 
     const attributes = await handlerInput.attributesManager.getPersistentAttributes();
 
-    let speech = INTRO;
+    let speech = INTRO(scaleSuggestion());
 
     if ("invocationCount" in attributes) {
       if (
         attributes["invocationCount"] > 3 &&
         attributes["invocationCount"] % 5 !== 0
       ) {
-        speech = INTRO_BRIEF;
+        speech = INTRO_BRIEF(scaleSuggestion());
       }
     }
 
@@ -94,7 +95,7 @@ export const NoRepeatIntent: RequestHandler = {
   },
   handle: async function(handlerInput: HandlerInput) {
     const scaleResponse: ScaleResponsePayload = {
-      speech: `${randomSpeech(WHAT_SCALE)}`,
+      speech: `${WHAT_SCALE(scaleSuggestion())}`,
       screenPayload: {}
     };
 
@@ -178,7 +179,7 @@ export const HelpIntentHandler: RequestHandler = {
   handle: function(handlerInput: HandlerInput) {
     // console.log(JSON.stringify(handlerInput));
     const scaleResponse: ScaleResponsePayload = {
-      speech: INTRO,
+      speech: INTRO(scaleSuggestion()),
       screenPayload: {}
     };
 
@@ -195,8 +196,7 @@ export const StopIntentHandler: RequestHandler = {
       (handlerInput.requestEnvelope.request.intent.name ===
         "AMAZON.CancelIntent" ||
         handlerInput.requestEnvelope.request.intent.name ===
-          "AMAZON.StopIntent" ||
-        handlerInput.requestEnvelope.request.intent.name === "AMAZON.NoIntent")
+          "AMAZON.StopIntent")
     );
   },
   handle: function(handlerInput: HandlerInput) {

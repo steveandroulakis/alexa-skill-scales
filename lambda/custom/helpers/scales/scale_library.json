@@ -1,18 +1,18 @@
 {
     "scale": {
         "key": {
-            "A": "A.",
-            "Bb": "B. flat",
-            "B": "B.",
-            "C": "C.",
-            "Db": "C. sharp",
-            "D": "D.",
-            "E": "E.",
-            "Eb": "E. flat",
-            "F": "F.",
-            "Gb": "F. sharp",
-            "G": "G.",
-            "Ab": "A. flat"
+            "A": "Ay",
+            "Bb": "Bee flat",
+            "B": "Bee",
+            "C": "C",
+            "Db": "C sharp",
+            "D": "D",
+            "E": "E",
+            "Eb": "E flat",
+            "F": "F",
+            "Gb": "F sharp",
+            "G": "G",
+            "Ab": "Ay flat"
         },
         "mode": {
             "major": "major",
