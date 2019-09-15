@@ -54,9 +54,9 @@ export function scaleHint() {
   return randomSpeech(hintSpeech);
 }
 
-export const INTRO = ` Scales can play in all keys from A to G, including sharps and flats. I can play up to two octaves, and many speeds, slow, moderate, and fast. ${scaleHint()}. What shall I play?`;
+export const INTRO = `Scales can play in all keys from A to G, including sharps and flats. I know three scales right now. Major, Natural Minor, and Harmonic minor. I can play up to two octaves, at a few speeds, slow, moderate, and fast. ${scaleHint()}. What shall I play?`;
 
-export const INTRO_BRIEF = ` Scales can play all keys, at multiple speeds. ${scaleHint()}. What shall I play?`;
+export const INTRO_BRIEF = `Scales can play all keys, at multiple speeds. ${scaleHint()}. What shall I play?`;
 
 export const ANOTHER = [
   "Another?",

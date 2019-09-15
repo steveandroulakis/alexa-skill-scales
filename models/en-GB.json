@@ -16,7 +16,19 @@
         },
         {
           "name": "AMAZON.HelpIntent",
-          "samples": []
+          "samples": [
+            "what scales can you play",
+            "what scales do you have",
+            "what can you do",
+            "what else can I do",
+            "what modes do you have",
+            "what keys can you play",
+            "what notes can you play",
+            "play an arpeggio",
+            "can you play an arpeggio",
+            "play melodic minor",
+            "do you have melodic minor"
+          ]
         },
         {
           "name": "AMAZON.StopIntent",
