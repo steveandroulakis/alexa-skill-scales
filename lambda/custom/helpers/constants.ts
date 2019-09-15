@@ -162,7 +162,7 @@ export function prepareResponse(
       speechTmp = `${SOUNDFX} ${speechTmp}`;
     }
   }
-  return handlerInput.responseBuilder.speak(speechTmp);
+  return handlerInput.responseBuilder.speak(speechTmp).reprompt(speechTmp);
 }
 
 export function randomSpeech(speechList: string[]): string {

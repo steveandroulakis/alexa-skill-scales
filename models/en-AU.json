@@ -8,7 +8,7 @@
         },
         {
           "name": "AMAZON.YesIntent",
-          "samples": []
+          "samples": ["sure", "why not"]
         },
         {
           "name": "AMAZON.NoIntent",
@@ -5517,6 +5517,7 @@
                 "value": "normal",
                 "synonyms": [
                   "medium pace",
+                  "medium paced",
                   "regular",
                   "moderate pace",
                   "moderate",

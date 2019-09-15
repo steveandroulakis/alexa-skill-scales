@@ -8,7 +8,7 @@
         },
         {
           "name": "AMAZON.YesIntent",
-          "samples": []
+          "samples": ["sure", "why not"]
         },
         {
           "name": "AMAZON.NoIntent",
@@ -5303,9 +5303,10 @@
             "now do it at {speed}",
             "now do it at {speed} speed",
             "now do it at {speed} pace",
-            "now do it for {two octaves}",
-            "now do a {key} {minor}",
-            "now do a {minor}"
+            "now do it for {octave}",
+            "now do a {key} {mode}",
+            "now do a {mode}",
+            "now do a {key}"
           ]
         }
       ],
@@ -5516,6 +5517,7 @@
                 "value": "normal",
                 "synonyms": [
                   "medium pace",
+                  "medium paced",
                   "regular",
                   "moderate pace",
                   "moderate",

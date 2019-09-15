@@ -2,16 +2,16 @@
     "scale": {
         "key": {
             "A": "A.",
-            "Bb": "B flat",
-            "B": "B",
-            "C": "C",
-            "Db": "C sharp",
-            "D": "D",
-            "E": "E",
-            "Eb": "E flat",
-            "F": "F",
-            "Gb": "F sharp",
-            "G": "G",
+            "Bb": "B. flat",
+            "B": "B.",
+            "C": "C.",
+            "Db": "C. sharp",
+            "D": "D.",
+            "E": "E.",
+            "Eb": "E. flat",
+            "F": "F.",
+            "Gb": "F. sharp",
+            "G": "G.",
             "Ab": "A. flat"
         },
         "mode": {
