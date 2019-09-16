@@ -136,7 +136,7 @@ export const PlayScaleIntent: RequestHandler = {
     let randMode = ``;
     if (currentIntent.name === "RandomScaleIntent") {
       randKey = randomKey();
-      randMode = randomScaleAttribute("mode");
+      randMode = randomMode();
     }
 
     const requestScaleAttributes: ScaleAttributes = {

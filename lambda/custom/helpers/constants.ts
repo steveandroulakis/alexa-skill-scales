@@ -47,6 +47,16 @@ export function randomKey(): string {
   return keys[rand];
 }
 
+// for RandomIntent
+export function randomMode(): string {
+  const scaleLibrary = SCALE_LIB["scale"]["mode"];
+  const keys = Object.keys(scaleLibrary);
+
+  const rand = Math.floor(Math.random() * keys.length);
+
+  return keys[rand];
+}
+
 export function formatKey(key: string): string {
   if (key.match(/^[AEF]/i)) {
     return `an ${key}`;
