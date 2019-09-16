@@ -11,7 +11,8 @@ import {
   getDefaultScaleAttributes,
   computeScaleAttributes,
   speechScaleResponse,
-  scaleAudioResponse
+  scaleAudioResponse,
+  humanNameScreen
 } from "../helpers/scales/scale_functions";
 import {
   randomSpeech,
@@ -23,8 +24,11 @@ import {
   GOODBYE,
   isOneShot,
   WHAT_SCALE,
-  scaleSuggestion
+  scaleSuggestion,
+  randomKey,
+  randomScaleAttribute
 } from "../helpers/constants";
+import { addScreen } from "./screen_handler";
 
 // TODO: This intent has been hard-wired to accept requests from
 // anything not implemented (e.g. 'help', 'yes', 'no')
@@ -53,7 +57,7 @@ export const LaunchRequestHandler: RequestHandler = {
 
     const scaleResponse: ScaleResponsePayload = {
       speech: speech,
-      screenPayload: {}
+      screenPayload: addScreen(handlerInput, "", "Scales by AMEB")
     };
 
     return prepareResponse(handlerInput, scaleResponse)
@@ -113,7 +117,9 @@ export const PlayScaleIntent: RequestHandler = {
         handlerInput.requestEnvelope.request.intent.name ===
           "AMAZON.YesIntent" ||
         handlerInput.requestEnvelope.request.intent.name ===
-          "AMAZON.RepeatIntent")
+          "AMAZON.RepeatIntent" ||
+        handlerInput.requestEnvelope.request.intent.name ===
+          "RandomScaleIntent")
     );
   },
   handle: async function(handlerInput: HandlerInput) {
@@ -122,12 +128,26 @@ export const PlayScaleIntent: RequestHandler = {
     const savedScaleAttributes: ScaleAttributes =
       persistentAttributes["scaleAttributes"];
 
+    const intentRequest = handlerInput.requestEnvelope.request as IntentRequest;
+    const currentIntent = intentRequest.intent;
+
+    // if the user asks for random
+    let randKey = ``;
+    let randMode = ``;
+    if (currentIntent.name === "RandomScaleIntent") {
+      randKey = randomKey();
+      randMode = randomScaleAttribute("mode");
+    }
+
     const requestScaleAttributes: ScaleAttributes = {
-      key: getSlotID(handlerInput, "key") || undefined,
-      mode: getSlotID(handlerInput, "mode") || undefined,
+      key: getSlotID(handlerInput, "key") || randKey || undefined,
+      mode: getSlotID(handlerInput, "mode") || randMode || undefined,
       speed: getSlotID(handlerInput, "speed") || undefined,
       octave: getSlotID(handlerInput, "octave") || undefined
     };
+
+    // TODO get slot val getSlotID(handlerInput, "key")
+    // validate and send through to screen
 
     const attributes: ScaleAttributeSet = {
       defaultScaleAttributes: getDefaultScaleAttributes(),
@@ -157,7 +177,11 @@ export const PlayScaleIntent: RequestHandler = {
 
     const scaleResponse: ScaleResponsePayload = {
       speech: speech,
-      screenPayload: {}
+      screenPayload: addScreen(
+        handlerInput,
+        humanNameScreen(computedScaleAttributes.key, "key"),
+        humanNameScreen(computedScaleAttributes.mode, "mode")
+      )
     };
 
     return prepareResponse(handlerInput, scaleResponse)
@@ -170,8 +194,28 @@ export const HelpIntentHandler: RequestHandler = {
   canHandle: function(handlerInput: HandlerInput) {
     return (
       handlerInput.requestEnvelope.request.type === "IntentRequest" &&
+      handlerInput.requestEnvelope.request.intent.name === "AMAZON.HelpIntent"
+    );
+  },
+  handle: function(handlerInput: HandlerInput) {
+    // console.log(JSON.stringify(handlerInput));
+    const scaleResponse: ScaleResponsePayload = {
+      speech: INTRO(scaleSuggestion()),
+      screenPayload: {}
+    };
+
+    return prepareResponse(handlerInput, scaleResponse)
+      .withShouldEndSession(false)
+      .getResponse();
+  }
+};
+
+export const CantDoThatIntentHandler: RequestHandler = {
+  canHandle: function(handlerInput: HandlerInput) {
+    return (
+      handlerInput.requestEnvelope.request.type === "IntentRequest" &&
       (handlerInput.requestEnvelope.request.intent.name ===
-        "AMAZON.HelpIntent" ||
+        "CantDoThatIntent" ||
         handlerInput.requestEnvelope.request.intent.name ===
           "AMAZON.FallbackIntent")
     );
@@ -179,7 +223,7 @@ export const HelpIntentHandler: RequestHandler = {
   handle: function(handlerInput: HandlerInput) {
     // console.log(JSON.stringify(handlerInput));
     const scaleResponse: ScaleResponsePayload = {
-      speech: INTRO(scaleSuggestion()),
+      speech: `Sorry, I can't do that yet. What scale would you like to hear?`,
       screenPayload: {}
     };
 

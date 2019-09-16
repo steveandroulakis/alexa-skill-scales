@@ -5,11 +5,11 @@
       "merge": {},
       "resources": {
         "manifest": {
-          "eTag": "4e9df0372b440eeccd4efcc9dfffcdf9"
+          "eTag": "c820f510eef2e98c7107024229a886a5"
         },
         "interactionModel": {
           "en-AU": {
-            "eTag": "78161aa9b0acc8b38eabcf7f41f84f65"
+            "eTag": "0eff5d8e3ef9db1738e207acefe3c5c5"
           }
         }
       }

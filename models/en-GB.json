@@ -8,11 +8,15 @@
         },
         {
           "name": "AMAZON.YesIntent",
-          "samples": ["sure", "why not"]
+          "samples": [
+            "sure",
+            "why not"
+          ]
         },
         {
           "name": "AMAZON.NoIntent",
-          "samples": ["nah I'm good",
+          "samples": [
+            "nah I'm good",
             "nah I'm good thanks",
             "nah I'm good thanks mate"
           ]
@@ -28,11 +32,6 @@
             "what modes do you have",
             "what keys can you play",
             "what notes can you play",
-            "play an arpeggio",
-            "can you play an arpeggio",
-            "can you do melodic minor",
-            "play melodic minor",
-            "do you have melodic minor",
             "what else can I say"
           ]
         },
@@ -53,7 +52,17 @@
             "repeat that scale",
             "play the scale again",
             "give me that again",
-            "give me that scale again"
+            "give me that scale again",
+            "start again",
+            "restart",
+            "start over",
+            "what scale is this",
+            "what is this",
+            "what's this",
+            "what scale is playing",
+            "what was the last scale",
+            "what scale did you just play",
+            "what was my last scale"
           ]
         },
         {
@@ -103,6 +112,44 @@
         {
           "name": "AMAZON.ScrollUpIntent",
           "samples": []
+        },
+        {
+          "name": "CantDoThatIntent",
+          "slots": [],
+          "samples": [
+            "play an arpeggio",
+            "can you play an arpeggio",
+            "can you do melodic minor",
+            "play melodic minor",
+            "do you have melodic minor",
+            "melodic minor",
+            "arpeggio",
+            "chords",
+            "play chords",
+            "play a chord"
+          ]
+        },
+        {
+          "name": "RandomScaleIntent",
+          "slots": [],
+          "samples": [
+            "play a random scale",
+            "random",
+            "random scale",
+            "get me a random scale",
+            "get me random",
+            "give me a random scale",
+            "give me random",
+            "I want a random scale",
+            "pick one",
+            "you pick one",
+            "you select a scale",
+            "you pick a scale",
+            "you select",
+            "pick a random one",
+            "you choose",
+            "choose one"
+          ]
         },
         {
           "name": "PlayScaleIntent",
@@ -5554,5 +5601,5 @@
       ]
     }
   },
-  "version": "15"
+  "version": "23"
 }

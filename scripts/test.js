@@ -39,8 +39,12 @@ function remainingScaleAttributes(computedAttributes) {
 }
 // get a human-readable name like 'C sharp' for a request
 function humanName(attribute, type) {
+    if (type === "key") {
+        return scale_library_json_1.default["scale"][type][attribute]["speech"];
+    }
     return scale_library_json_1.default["scale"][type][attribute];
 }
+exports.humanName = humanName;
 // respond with intro speech and a scale
 function speechScaleResponse(computedScale, requestedScale) {
     const scaleSpeech = `Playing ${humanName(computedScale.key, "key")} ${humanName(computedScale.mode, "mode")}`;
@@ -107,14 +111,29 @@ if (keyTest.match(/^[AEF]/i)) {
     // alphabet letters found
     console.log("found");
 }
+// export function randomScaleAttribute(attribute: string): string {
+//   const scaleLibrary = SCALE_LIBRARY["scale"][attribute];
+//   const keys = Object.keys(scaleLibrary);
+//   const rand = Math.floor(Math.random() * keys.length);
+//   console.log(keys.length);
+//   console.log(rand);
+//   return scaleLibrary[keys[rand]];
+// }
+// for suggestions
 function randomScaleAttribute(attribute) {
     const scaleLibrary = scale_library_json_1.default["scale"][attribute];
     const keys = Object.keys(scaleLibrary);
     const rand = Math.floor(Math.random() * keys.length);
-    console.log(keys.length);
-    console.log(rand);
-    return scaleLibrary[keys[rand]];
+    return humanName(keys[rand], attribute);
 }
 exports.randomScaleAttribute = randomScaleAttribute;
+function randomKey() {
+    const scaleLibrary = scale_library_json_1.default["scale"]["key"];
+    const keys = Object.keys(scaleLibrary);
+    const rand = Math.floor(Math.random() * keys.length);
+    return keys[rand];
+}
+exports.randomKey = randomKey;
 console.log(randomScaleAttribute("key"));
+console.log(randomKey());
 //# sourceMappingURL=test.js.map

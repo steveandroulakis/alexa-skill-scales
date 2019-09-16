@@ -1,23 +1,59 @@
 {
     "scale": {
         "key": {
-            "A": "A. <break time='0.1s'/>",
-            "Bb": "B. <break time='0.1s'/> flat",
-            "B": "B. <break time='0.1s'/>",
-            "C": "C <break time='0.1s'/>",
-            "Db": "C <break time='0.1s'/> sharp",
-            "D": "Dee <break time='0.1s'/>",
-            "E": "E",
-            "Eb": "E flat",
-            "F": "F <break time='0.1s'/>",
-            "Gb": "F <break time='0.1s'/> sharp",
-            "G": "G <break time='0.1s'/>",
-            "Ab": "A. <break time='0.1s'/> flat"
+            "A": {
+                "speech": "A. <break time='0.1s'/>",
+                "readable": "A"
+            },
+            "Bb": {
+                "speech": "B. <break time='0.1s'/> flat",
+                "readable": "Bb"
+            },
+            "B": {
+                "speech": "B. <break time='0.1s'/>",
+                "readable": "B"
+            },
+            "C": {
+                "speech": "C <break time='0.1s'/>",
+                "readable": "C"
+            },
+            "Db": {
+                "speech": "C <break time='0.1s'/> sharp",
+                "readable": "C#"
+            },
+            "D": {
+                "speech": "Dee <break time='0.1s'/>",
+                "readable": "D"
+            },
+            "E": {
+                "speech": "E",
+                "readable": "E"
+            },
+            "Eb": {
+                "speech": "E flat",
+                "readable": "Eb"
+            },
+            "F": {
+                "speech": "F <break time='0.1s'/>",
+                "readable": "F"
+            },
+            "Gb": {
+                "speech": "F <break time='0.1s'/> sharp",
+                "readable": "F#"
+            },
+            "G": {
+                "speech": "G <break time='0.1s'/>",
+                "readable": "G"
+            },
+            "Ab": {
+                "speech": "A. <break time='0.1s'/> flat",
+                "readable": "Ab"
+            }
         },
         "mode": {
-            "major": "major",
-            "natural_minor": "natural minor",
-            "harmonic_minor": "harmonic minor"
+            "major": "Major",
+            "natural_minor": "Natural Minor",
+            "harmonic_minor": "Harmonic Minor"
         },
         "octave": {
             "1": "one octave",

@@ -7,10 +7,52 @@
         },
         "interfaces": [
           {
-            "type": "ALEXA_PRESENTATION_APL"
+            "type": "RENDER_TEMPLATE"
           },
           {
-            "type": "RENDER_TEMPLATE"
+            "type": "ALEXA_PRESENTATION_APL",
+            "supportedViewports": [
+              {
+                "mode": "HUB",
+                "shape": "ROUND",
+                "minWidth": 480,
+                "maxWidth": 480,
+                "minHeight": 480,
+                "maxHeight": 480
+              },
+              {
+                "mode": "HUB",
+                "shape": "RECTANGLE",
+                "minWidth": 1024,
+                "maxWidth": 1024,
+                "minHeight": 600,
+                "maxHeight": 600
+              },
+              {
+                "mode": "HUB",
+                "shape": "RECTANGLE",
+                "minWidth": 1280,
+                "maxWidth": 1280,
+                "minHeight": 800,
+                "maxHeight": 800
+              },
+              {
+                "mode": "TV",
+                "shape": "RECTANGLE",
+                "minWidth": 960,
+                "maxWidth": 960,
+                "minHeight": 540,
+                "maxHeight": 540
+              },
+              {
+                "mode": "HUB",
+                "shape": "RECTANGLE",
+                "minWidth": 960,
+                "maxWidth": 960,
+                "minHeight": 480,
+                "maxHeight": 480
+              }
+            ]
           }
         ]
       }
@@ -30,8 +72,8 @@
       "locales": {
         "en-AU": {
           "name": "Scales",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/9548/22200462728b4f81b4917602239ea65b/APP_ICON?versionId=xl.IH3fN_UGbP9DDE52yulQ5FN2VeqdU&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190914T074646Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=51ed2de5d52ac666d41c849dcbf6fa822e7ca4e9c9698ddd990cd401acb02081",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/3ac9/1e3ae3214dfa4520bdfb95e49e5fccac/APP_ICON_LARGE?versionId=.HvqVkHmkD7UpOFHu8sAGbk4IBFG6b_I&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190914T074646Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=666ad3653905f3a19af6bb6ade5104a51102d08305688ed9c836040c51c2084e",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/9548/22200462728b4f81b4917602239ea65b/APP_ICON?versionId=xl.IH3fN_UGbP9DDE52yulQ5FN2VeqdU&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190916T025512Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190916%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=3a45d0c575d9fad19db617b87f1ce2522d44c184c63230734f325e8b105b65e4",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/3ac9/1e3ae3214dfa4520bdfb95e49e5fccac/APP_ICON_LARGE?versionId=.HvqVkHmkD7UpOFHu8sAGbk4IBFG6b_I&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190916T025512Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190916%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=972c0dc91f724ad554425591a66aa58cbd0685a24b9d8f54aa11bcd1ce88987c",
           "summary": "Musical scales",
           "description": "SNAPPY DESCRIPTION, WOAH THIS SKILL IS AMAZING. But seriously it's a good start. Needs basic screens.\n\ne.g. play B flat major for 2 octaves at fast pace\n\nValid keys: A, B-flat, B, C, C-sharp, D, E, E-flat, F, F-sharp, G, A-flat\nScales: major, natural minor, harmonic minor\nSpeeds: slow, moderate, fast",
           "examplePhrases": [

@@ -11,7 +11,8 @@ import {
   PlayScaleIntent,
   HelpIntentHandler,
   PlayScaleIncompleteIntent,
-  NoRepeatIntent
+  NoRepeatIntent,
+  CantDoThatIntentHandler
 } from "./handlers/default_handler";
 import { preInterceptor, postInterceptor } from "./handlers/interceptors";
 import { CONSTANTS } from "./helpers/constants";
@@ -23,6 +24,7 @@ export const handler = skillBuilder
     LaunchRequestHandler,
     PlayScaleIncompleteIntent,
     PlayScaleIntent,
+    CantDoThatIntentHandler,
     NoRepeatIntent,
     HelpIntentHandler,
     StopIntentHandler,

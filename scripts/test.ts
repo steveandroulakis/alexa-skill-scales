@@ -61,7 +61,11 @@ function remainingScaleAttributes(
 }
 
 // get a human-readable name like 'C sharp' for a request
-function humanName(attribute: string, type: string): string {
+export function humanName(attribute: string, type: string): string {
+  if (type === "key") {
+    return SCALE_LIBRARY["scale"][type][attribute]["speech"];
+  }
+
   return SCALE_LIBRARY["scale"][type][attribute];
 }
 
@@ -169,16 +173,36 @@ if (keyTest.match(/^[AEF]/i)) {
   console.log("found");
 }
 
+// export function randomScaleAttribute(attribute: string): string {
+//   const scaleLibrary = SCALE_LIBRARY["scale"][attribute];
+//   const keys = Object.keys(scaleLibrary);
+
+//   const rand = Math.floor(Math.random() * keys.length);
+
+//   console.log(keys.length);
+//   console.log(rand);
+
+//   return scaleLibrary[keys[rand]];
+// }
+
+// for suggestions
 export function randomScaleAttribute(attribute: string): string {
   const scaleLibrary = SCALE_LIBRARY["scale"][attribute];
   const keys = Object.keys(scaleLibrary);
 
   const rand = Math.floor(Math.random() * keys.length);
 
-  console.log(keys.length);
-  console.log(rand);
+  return humanName(keys[rand], attribute);
+}
 
-  return scaleLibrary[keys[rand]];
+export function randomKey(): string {
+  const scaleLibrary = SCALE_LIBRARY["scale"]["key"];
+  const keys = Object.keys(scaleLibrary);
+
+  const rand = Math.floor(Math.random() * keys.length);
+
+  return keys[rand];
 }
 
 console.log(randomScaleAttribute("key"));
+console.log(randomKey());

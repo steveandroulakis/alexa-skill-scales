@@ -1,6 +1,7 @@
 import configObj from "../data/config.json";
 import { HandlerInput } from "ask-sdk";
 import SCALE_LIB from "./scales/scale_library.json";
+import { humanName } from "./scales/scale_functions";
 
 export const CONSTANTS = {
   CONFIG: configObj
@@ -33,7 +34,17 @@ export function randomScaleAttribute(attribute: string): string {
 
   const rand = Math.floor(Math.random() * keys.length);
 
-  return scaleLibrary[keys[rand]];
+  return humanName(keys[rand], attribute);
+}
+
+// for RandomIntent
+export function randomKey(): string {
+  const scaleLibrary = SCALE_LIB["scale"]["key"];
+  const keys = Object.keys(scaleLibrary);
+
+  const rand = Math.floor(Math.random() * keys.length);
+
+  return keys[rand];
 }
 
 export function formatKey(key: string): string {

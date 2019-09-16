@@ -73,6 +73,19 @@ export function remainingScaleAttributes(
 
 // get a human-readable name like 'C sharp' for a request
 export function humanName(attribute: string, type: string): string {
+  if (type === "key") {
+    return SCALE_LIBRARY["scale"][type][attribute]["speech"];
+  }
+
+  return SCALE_LIBRARY["scale"][type][attribute];
+}
+
+// get a human-readable name like 'C sharp' for a request
+export function humanNameScreen(attribute: string, type: string): string {
+  if (type === "key") {
+    return SCALE_LIBRARY["scale"][type][attribute]["readable"];
+  }
+
   return SCALE_LIBRARY["scale"][type][attribute];
 }
 
