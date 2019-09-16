@@ -265,56 +265,15 @@ export const AnyIntentRequest: RequestHandler = {
     return handlerInput.requestEnvelope.request.type === "IntentRequest";
   },
   handle: function(handlerInput: HandlerInput) {
-    const intentRequest = handlerInput.requestEnvelope.request as IntentRequest;
-    const currentIntent = intentRequest.intent;
-
-    let prompt = `The Intent is, ${currentIntent.name}.`;
-
-    if ("slots" in intentRequest.intent) {
-      for (const slotName of Object.keys(intentRequest.intent.slots)) {
-        const currentSlot = currentIntent.slots[slotName];
-
-        prompt += ` A slot called, ${
-          currentSlot.name
-        }, was filled with the value, ${currentSlot.value}.`;
-
-        if (
-          currentSlot.resolutions &&
-          currentSlot.resolutions.resolutionsPerAuthority[0]
-        ) {
-          if (
-            currentSlot.resolutions.resolutionsPerAuthority[0].status.code ===
-            "ER_SUCCESS_MATCH"
-          ) {
-            if (
-              currentSlot.resolutions.resolutionsPerAuthority[0].values
-                .length >= 1
-            ) {
-              prompt += ` It matched these values,`;
-              currentSlot.resolutions.resolutionsPerAuthority[0].values.forEach(
-                element => {
-                  prompt += ` ${element.value.name}. `;
-                }
-              );
-            }
-          }
-        } else {
-          prompt += ` `;
-        }
-      }
-    }
-
+    // console.log(JSON.stringify(handlerInput));
     const scaleResponse: ScaleResponsePayload = {
-      speech: prompt,
+      speech: `Sorry, I can't do that yet. What scale would you like to hear?`,
       screenPayload: {}
     };
 
-    const resp = prepareResponse(handlerInput, scaleResponse);
-
-    resp.withShouldEndSession(false);
-    resp.withSimpleCard("androula@ debug skeleton", prompt);
-
-    return resp.getResponse();
+    return prepareResponse(handlerInput, scaleResponse)
+      .withShouldEndSession(false)
+      .getResponse();
   }
 };
 

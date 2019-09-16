@@ -5,11 +5,23 @@
       "merge": {},
       "resources": {
         "manifest": {
-          "eTag": "c820f510eef2e98c7107024229a886a5"
+          "eTag": "6bf034ff99732289529128ae852e5f37"
         },
         "interactionModel": {
           "en-AU": {
-            "eTag": "50aabd3b24bf38a5c43ed18cdf55625a"
+            "eTag": "301e02c35d7e943eafcfddb746b75934"
+          },
+          "en-GB": {
+            "eTag": "301e02c35d7e943eafcfddb746b75934"
+          },
+          "en-US": {
+            "eTag": "301e02c35d7e943eafcfddb746b75934"
+          },
+          "en-CA": {
+            "eTag": "301e02c35d7e943eafcfddb746b75934"
+          },
+          "en-IN": {
+            "eTag": "301e02c35d7e943eafcfddb746b75934"
           }
         }
       }
