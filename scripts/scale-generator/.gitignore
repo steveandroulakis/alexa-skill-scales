@@ -1,0 +1,5 @@
+*.midi
+*.wav
+*.ly
+.DS_store
+*.sf2

@@ -18,4 +18,6 @@ lambda/node_modules_prod/*
 lambda/custom/**/*.js
 lambda/custom/**/*.map
 
+scripts/scale-generator/output/*.mp3
+
 !lambda/custom/**/webpack.config.js

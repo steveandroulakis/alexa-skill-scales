@@ -97,21 +97,15 @@ export function WHAT_SCALE(suggestion: string) {
 export const ANOTHER = [
   "Another?",
   "Again?",
-  "Want that again?",
-  "Shall I repeat?",
   "Another?",
   "Again?",
-  "Want that again?",
-  "Will I repeat?",
+  "Shall I repeat this scale?",
   "Shall I play it again?",
-  "One more time?",
-  "One more listen?",
-  "Do you want to hear it again?",
+  "Shall I play this scale again?",
+  "Do you want another listen?",
+  "Do you want to hear the scale again?",
   "Do you want to listen to another?",
-  "Shall I play another time?",
-  "Can I repeat that?",
-  "Once more?",
-  "Another go?"
+  "Once more?"
 ];
 
 export const ACKNOWLEDGE = [
