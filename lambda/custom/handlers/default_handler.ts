@@ -26,7 +26,7 @@ import {
   WHAT_SCALE,
   scaleSuggestion,
   randomKey,
-  randomScaleAttribute
+  randomMode
 } from "../helpers/constants";
 import { addScreen } from "./screen_handler";
 

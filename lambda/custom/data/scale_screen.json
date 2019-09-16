@@ -1,0 +1,89 @@
+{
+    "document": {
+        "type": "APL",
+        "version": "1.0",
+        "theme": "light",
+        "import": [],
+        "resources": [],
+        "styles": {},
+        "layouts": {},
+        "mainTemplate": {
+            "parameters": [
+                "payload"
+            ],
+            "items": [{
+                    "when": "${viewport.shape == 'round'}",
+                    "type": "Frame",
+                    "width": "100vw",
+                    "height": "100vh",
+                    "backgroundColor": "white",
+                    "items": [{
+                        "type": "Container",
+                        "width": "100vw",
+                        "height": "100vh",
+                        "items": [{
+                                "type": "Text",
+                                "paddingTop": "20dp",
+                                "paddingBottom": "0dp",
+                                "paddingLeft": "12dp",
+                                "paddingRight": "12dp",
+                                "textAlign": "center",
+                                "fontSize": "220dp",
+                                "text": "${payload.data.heroText}"
+                            },
+                            {
+                                "type": "Text",
+                                "paddingTop": "0dp",
+                                "paddingBottom": "12dp",
+                                "paddingLeft": "30dp",
+                                "paddingRight": "30dp",
+                                "textAlign": "center",
+                                "fontSize": "60dp",
+                                "text": "${payload.data.subText}"
+                            }
+                        ]
+                    }]
+                },
+                {
+                    "type": "Frame",
+                    "width": "100vw",
+                    "height": "100vh",
+                    "backgroundColor": "white",
+                    "items": [{
+                        "type": "Container",
+                        "width": "100vw",
+                        "height": "100vh",
+                        "items": [{
+                                "type": "Text",
+                                "paddingTop": "0dp",
+                                "paddingBottom": "0dp",
+                                "paddingLeft": "12dp",
+                                "paddingRight": "12dp",
+                                "textAlign": "center",
+                                "fontSize": "240dp",
+                                "text": "${payload.data.heroText}"
+                            },
+                            {
+                                "type": "Text",
+                                "paddingTop": "0dp",
+                                "paddingBottom": "12dp",
+                                "paddingLeft": "30dp",
+                                "paddingRight": "30dp",
+                                "textAlign": "center",
+                                "fontSize": "80dp",
+                                "text": "${payload.data.subText}"
+                            }
+                        ]
+                    }]
+                }
+            ]
+        }
+    },
+    "datasources": {
+        "data": {
+            "imageUrl": "https://cdn.shopify.com/s/files/1/0014/2521/1486/collections/AMEB_1200x1200.png",
+            "heroText": "C",
+            "subText": "Harmonic Minor"
+        }
+    }
+}
