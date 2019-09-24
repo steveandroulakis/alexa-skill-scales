@@ -85,7 +85,7 @@ export function scaleHint(suggestion: string) {
 }
 
 export function INTRO(suggestion: string) {
-  return `Scales can play in all keys from A to G, including sharps and flats. I know three scales right now. Major, Natural Minor, and Harmonic minor. I can play up to two octaves, at a few speeds, slow, moderate, and fast. ${scaleHint(
+  return `Scales can play in all keys from A to G, including sharps and flats. I know three scales right now. Major, Melodic Minor, and Harmonic minor. I can play up to two octaves, at a few speeds, slow, moderate, and fast. ${scaleHint(
     suggestion
   )}. What can I play for you?`;
 }

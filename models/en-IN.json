@@ -119,14 +119,14 @@
           "samples": [
             "play an arpeggio",
             "can you play an arpeggio",
-            "can you do melodic minor",
-            "play melodic minor",
-            "do you have melodic minor",
-            "melodic minor",
             "arpeggio",
             "chords",
             "play chords",
-            "play a chord"
+            "play a chord",
+            "can you do natural minor",
+            "play natural minor",
+            "do you have natural minor",
+            "natural minor"
           ]
         },
         {
@@ -5358,7 +5358,14 @@
             "now do it for {octave}",
             "now do a {key} {mode}",
             "now do a {mode}",
-            "now do a {key}"
+            "now do a {key}",
+            "play me a {mode} scale in the key of {key}",
+            "{mode} scale in the key of {key}",
+            "the key of {key}",
+            "give me a {mode} scale in the key of {key}",
+            "play me a {mode} in the key of {key}",
+            "{mode} in the key of {key}",
+            "give me a {mode} in the key of {key}"
           ]
         }
       ],
@@ -5490,7 +5497,8 @@
               "name": {
                 "value": "harmonic minor",
                 "synonyms": [
-                  "harmonic"
+                  "harmonic",
+                  "harmonic minor key"
                 ]
               }
             },
@@ -5501,20 +5509,23 @@
                 "synonyms": [
                   "ionian mode",
                   "ionian",
-                  "major scale"
+                  "major scale",
+                  "major key"
                 ]
               }
             },
             {
-              "id": "natural_minor",
+              "id": "melodic_minor",
               "name": {
                 "value": "minor",
                 "synonyms": [
                   "aeolian scale",
                   "minor scale",
+                  "minor key",
                   "aeolian mode",
                   "aeolian",
-                  "natural minor"
+                  "melodic minor",
+                  "melodic minor key"
                 ]
               }
             }

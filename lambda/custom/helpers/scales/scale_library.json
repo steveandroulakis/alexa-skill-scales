@@ -52,7 +52,7 @@
         },
         "mode": {
             "major": "Major",
-            "natural_minor": "Natural Minor",
+            "melodic_minor": "Melodic Minor",
             "harmonic_minor": "Harmonic Minor"
         },
         "octave": {

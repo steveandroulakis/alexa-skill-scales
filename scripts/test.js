@@ -21,8 +21,8 @@ function computeScaleAttributes(scaleAttributeSet) {
     for (const key in scaleAttributeSet.defaultScaleAttributes) {
         scaleAttributes[key] =
             scaleAttributeSet.requestScaleAttributes[key] ||
-                scaleAttributeSet.savedScaleAttributes[key] ||
-                scaleAttributeSet.defaultScaleAttributes[key];
+            scaleAttributeSet.savedScaleAttributes[key] ||
+            scaleAttributeSet.defaultScaleAttributes[key];
     }
     return scaleAttributes;
 }
@@ -58,7 +58,7 @@ function speechScaleResponse(computedScale, requestedScale) {
     return scaleSpeech + modifierSpeech + ".";
 }
 function computeScaleFilename(computedScale) {
-    const tempos = { slow: "80", normal: "120", fast: "160" };
+    const tempos = { slow: "60", normal: "120", fast: "160" };
     // scale_E_natural_minor_1o_120
     const scaleFilename = `scale_${computedScale.key}_${computedScale.mode}_${computedScale.octave}o_${tempos[computedScale.speed]}.mp3`;
     return scaleFilename;

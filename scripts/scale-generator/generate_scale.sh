@@ -4,11 +4,12 @@
 # SCALES 216
 for KEY in A Bb B C Db D E Eb F Gb G Ab
 do
-    for SCALE in major natural_minor harmonic_minor # TODO 2 more scales
+    for SCALE in major melodic_minor harmonic_minor # TODO 2 more scales
+    # for SCALE in melodic_minor # TODO 2 more scales
     do
         for OCTAVES in 1 2
         do
-            for tempo in 80 120 160
+            for tempo in 60 120 160
             do
                 key=$KEY
                 scale=$SCALE
