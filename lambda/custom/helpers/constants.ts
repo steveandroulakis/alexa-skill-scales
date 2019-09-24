@@ -91,7 +91,7 @@ export function INTRO(suggestion: string) {
 }
 
 export function INTRO_BRIEF(suggestion: string) {
-  return `Scales can play major, natural minor and harmonic minor. ${scaleHint(
+  return `Scales can play major, melodic minor and harmonic minor. ${scaleHint(
     suggestion
   )}. What shall I play?`;
 }
