@@ -139,7 +139,11 @@ export function scaleAudioResponse(
     CONSTANTS.CONFIG.SCALE_AUDIO_URL_PREFIX
   }${computeScaleFilename(computedScaleAttributes)}" />`;
 
-  const speech = `${ssmlBreak} ${audioTag} ${audioTag} ${ssmlBreak}`;
+  let speech = `${ssmlBreak} ${audioTag} ${audioTag} ${ssmlBreak}`;
+
+  if (computedScaleAttributes.speed === "slow") {
+    speech = `${ssmlBreak} ${audioTag} ${ssmlBreak}`;
+  }
 
   return speech;
 }
