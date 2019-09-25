@@ -133,7 +133,7 @@ export function computeScaleFilename(computedScale: ScaleAttributes) {
 export function scaleAudioResponse(
   computedScaleAttributes: ScaleAttributes
 ): string {
-  const ssmlBreak = `<break time="1s"/>`;
+  const ssmlBreak = `<break time="1.5s"/>`;
 
   const audioTag = `<audio src="${
     CONSTANTS.CONFIG.SCALE_AUDIO_URL_PREFIX
