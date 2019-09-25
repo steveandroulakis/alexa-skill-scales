@@ -119,7 +119,7 @@ export function speechScaleResponse(
 }
 
 export function computeScaleFilename(computedScale: ScaleAttributes) {
-  const tempos = { slow: "60", normal: "120", fast: "160" };
+  const tempos = { slow: "60_crotchet", normal: "120", fast: "160" };
 
   // scale_E_natural_minor_1o_120
 
