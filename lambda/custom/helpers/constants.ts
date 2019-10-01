@@ -195,9 +195,11 @@ export function prepareResponse(
   handlerInput,
   scaleResponse: ScaleResponsePayload
 ) {
-  let speechTmp = `<voice name="Brian"><lang xml:lang="en-AU">${
-    scaleResponse.speech
-  }</lang></voice>`;
+  // let speechTmp = `<voice name="Brian"><lang xml:lang="en-AU">${
+  //   scaleResponse.speech
+  // }</lang></voice>`;
+
+  let speechTmp = `${scaleResponse.speech}`;
 
   if ("session" in handlerInput.requestEnvelope) {
     if (handlerInput.requestEnvelope.session.new) {
