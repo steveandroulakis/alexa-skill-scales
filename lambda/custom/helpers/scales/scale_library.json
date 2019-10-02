@@ -62,7 +62,8 @@
         "speed": {
             "fast": "fast",
             "normal": "medium pace",
-            "slow": "slow"
+            "slow": "slow",
+            "extra_slow": "extra slow"
         }
     }
 }

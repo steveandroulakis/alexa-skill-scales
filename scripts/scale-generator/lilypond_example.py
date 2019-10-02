@@ -148,6 +148,10 @@ def arpeggio_music(key, scale, octaves):
 
     pool_notes = []
 
+    addnotes = 0
+    if octaves == "2":
+        addnotes = 0
+
     # this is to get around a WEIRD case sensitivity bug between M and m
 
     # pool = Chord(n, 'dim7')
@@ -156,14 +160,102 @@ def arpeggio_music(key, scale, octaves):
         scale = 'M'
 
     for o in range(1, octnum+1):
-        octpos = 4*o
+        octpos = 3+o
 
         n = Note('%s%s' % (key, octpos))
         pool = Chord(n, scale)
         pool_notes = pool_notes + pool.notes
 
+    #print(pool_notes)
+
     # steve + 1 is for the ocave above
-    for index in range(len(pool_notes)):
+    for index in range(len(pool_notes)+addnotes):
+        bar = []
+
+        #print(pool_notes)
+        #print(index)
+
+        note = pool_notes[index].lilypond_notation()
+
+        '''
+        difference = (bar[-1].octave)-(pool[index].octave)
+        if difference == 1:
+            note+=','
+        elif difference == -1:
+            note+='\''
+        '''
+
+        bar.append(note)
+
+        yield ' '.join(bar)
+
+    # descending scales
+    for index in range(len(pool_notes)+addnotes-2, -1, -1):
+        bar = []
+
+        note = pool_notes[index].lilypond_notation()
+
+        '''
+        difference = (bar[-1].octave)-(pool[index].octave)
+        if difference == 1:
+            note+=','
+        elif difference == -1:
+            note+='\''
+        '''
+
+        bar.append(note)
+
+        yield ' '.join(bar)
+
+
+def arpeggio_music_crotchet(key, scale, octaves):
+    octnum = int(octaves)
+
+    pool_notes = []
+
+    addnotes = 0
+    if octaves == "2":
+        addnotes = 0
+
+    # this is to get around a WEIRD case sensitivity bug between M and m
+
+    # pool = Chord(n, 'dim7')
+    # pool = Chord(n, 'dom7')
+    if scale == 'maj':
+        scale = 'M'
+
+    for o in range(1, octnum+1):
+        octpos = 3+o
+
+        n = Note('%s%s' % (key, octpos))
+        pool = Chord(n, scale)
+        pool_notes = pool_notes + pool.notes
+
+    #print(pool_notes)
+
+    # steve + 1 is for the ocave above
+    for index in range(len(pool_notes)+addnotes):
+        bar = []
+
+        # print(pool_notes)
+        # print(index)
+
+        note = pool_notes[index].lilypond_notation()
+
+        '''
+        difference = (bar[-1].octave)-(pool[index].octave)
+        if difference == 1:
+            note+=','
+        elif difference == -1:
+            note+='\''
+        '''
+
+        bar.append(note)
+
+        yield ' '.join(bar)
+
+    # descending scales
+    for index in range(len(pool_notes)+addnotes-2, -1, -1):
         bar = []
 
         note = pool_notes[index].lilypond_notation()
@@ -196,5 +288,8 @@ if mode == "scale_crotchet":
 elif mode == "arpeggio":
     lilypond_composer(arpeggio_music(key, scale, octaves), tempo,
                       file_name="arpeggio_%s_%s_%so_%s.ly" % (key, scale, octaves, tempo))
+elif mode == "arpeggio_crotchet":
+    lilypond_composer_crotchet(arpeggio_music_crotchet(key, scale, octaves), tempo,
+                      file_name="arpeggio_%s_%s_%so_%s_crotchet.ly" % (key, scale, octaves, tempo))
 else:
-    print('~~~~ INVALID MODE. NEEDS TO BE SCALE OR ARPEGGIO OR SCALE_CROTCHET')
+    print('~~~~ INVALID MODE. NEEDS TO BE SCALE OR ARPEGGIO OR SCALE_CROTCHET / ARPEGGIO_CROTCHET')

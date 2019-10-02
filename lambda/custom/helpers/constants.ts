@@ -74,6 +74,7 @@ export function scaleHint(suggestion: string) {
   const hintSpeech = [
     `Try asking me to play ${suggestion} for two octaves`,
     `For example, ask me to play ${suggestion}, slow`,
+    `For example, ask me to play ${suggestion}, extra slow`,
     `Try asking for ${suggestion} for two octaves at a fast speed`,
     `How about asking me for ${suggestion} for one octave at moderate speed`,
     `How about ${suggestion}?`,

@@ -5608,6 +5608,21 @@
                   "slower pace"
                 ]
               }
+            },
+            {
+              "id": "extra_slow",
+              "name": {
+                "value": "extra slow",
+                "synonyms": [
+                  "extra slow",
+                  "really slow",
+                  "slowest",
+                  "extremely slow",
+                  "super slow",
+                  "extra slow speed",
+                  "extra slow pace"
+                ]
+              }
             }
           ],
           "name": "SPEED"
