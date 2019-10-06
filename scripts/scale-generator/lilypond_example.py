@@ -166,14 +166,14 @@ def arpeggio_music(key, scale, octaves):
         pool = Chord(n, scale)
         pool_notes = pool_notes + pool.notes
 
-    #print(pool_notes)
+    # print(pool_notes)
 
     # steve + 1 is for the ocave above
     for index in range(len(pool_notes)+addnotes):
         bar = []
 
-        #print(pool_notes)
-        #print(index)
+        # print(pool_notes)
+        # print(index)
 
         note = pool_notes[index].lilypond_notation()
 
@@ -231,7 +231,7 @@ def arpeggio_music_crotchet(key, scale, octaves):
         pool = Chord(n, scale)
         pool_notes = pool_notes + pool.notes
 
-    #print(pool_notes)
+    # print(pool_notes)
 
     # steve + 1 is for the ocave above
     for index in range(len(pool_notes)+addnotes):
@@ -279,17 +279,18 @@ scale = str(sys.argv[3])
 octaves = str(sys.argv[4])
 tempo = str(sys.argv[5])
 
+
 if mode == "scale":
     lilypond_composer(scale_music(key, scale, octaves), tempo,
                       file_name="scale_%s_%s_%so_%s.ly" % (key, scale, octaves, tempo))
-if mode == "scale_crotchet":
+elif mode == "scale_crotchet":
     lilypond_composer_crotchet(scale_music_crotchet(key, scale, octaves), tempo,
-                      file_name="scale_%s_%s_%so_%s_crotchet.ly" % (key, scale, octaves, tempo))
+                               file_name="scale_%s_%s_%so_%s_crotchet.ly" % (key, scale, octaves, tempo))
 elif mode == "arpeggio":
     lilypond_composer(arpeggio_music(key, scale, octaves), tempo,
                       file_name="arpeggio_%s_%s_%so_%s.ly" % (key, scale, octaves, tempo))
 elif mode == "arpeggio_crotchet":
     lilypond_composer_crotchet(arpeggio_music_crotchet(key, scale, octaves), tempo,
-                      file_name="arpeggio_%s_%s_%so_%s_crotchet.ly" % (key, scale, octaves, tempo))
+                               file_name="arpeggio_%s_%s_%so_%s_crotchet.ly" % (key, scale, octaves, tempo))
 else:
     print('~~~~ INVALID MODE. NEEDS TO BE SCALE OR ARPEGGIO OR SCALE_CROTCHET / ARPEGGIO_CROTCHET')
