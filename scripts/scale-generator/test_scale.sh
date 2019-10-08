@@ -21,12 +21,12 @@
 
 key=C
 scale=major
-octaves=2
-tempo=120
+octaves=1
+tempo=40
 
 python lilypond_example.py scale $key $scale $octaves $tempo
 sleep 0.2
 
 outfile="scale_${key}_${scale}_${octaves}o_${tempo}"
 ./ly2midi --outfile $outfile "$outfile.ly"
-fluidsynth -F "$outfile.wav" Masterpiece.sf2 "$outfile.midi"
+fluidsynth -F "$outfile.wav" "HQ Orchestral Soundfont Collection v3.0.sf2" "$outfile.midi"

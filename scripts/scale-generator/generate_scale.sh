@@ -29,7 +29,7 @@
 # done
 
 #SCALES
-for KEY in A Bb B C Db D E Eb F Gb G Ab
+for KEY in C A Bb B C Db D E Eb F Gb G Ab
 do
     for SCALE in major melodic_minor harmonic_minor
     # for SCALE in melodic_minor
@@ -44,11 +44,11 @@ do
                 tempo=$tempo
 
                 python lilypond_example.py scale $key $scale $octaves $tempo
-                sleep 0.2
+                sleep 0.1
 
                 outfile="scale_${key}_${scale}_${octaves}o_${tempo}"
                 ./ly2midi --outfile $outfile "$outfile.ly"
-                fluidsynth -F "$outfile.wav" Masterpiece.sf2 "$outfile.midi"
+                fluidsynth -F "$outfile.wav" "HQ Orchestral Soundfont Collection v3.0.sf2" "$outfile.midi"
                 # image lilypond --png scale_C_major_2o_80.ly
             done
         done
@@ -81,7 +81,7 @@ done
 #     done
 # done
 
-# ARPEGGIOS
+ARPEGGIOS
 for KEY in A Bb B C Db D E Eb F Gb G Ab
 do
     for SCALE in m maj dim7 dom7
@@ -96,11 +96,11 @@ do
                 tempo=$tempo
 
                 python lilypond_example.py arpeggio $key $scale $octaves $tempo
-                sleep 0.2
+                sleep 0.1
 
                 outfile="arpeggio_${key}_${scale}_${octaves}o_${tempo}"
                 ./ly2midi --outfile $outfile "$outfile.ly"
-                fluidsynth -F "$outfile.wav" Masterpiece.sf2 "$outfile.midi"
+                fluidsynth -F "$outfile.wav" "HQ Orchestral Soundfont Collection v3.0.sf2" "$outfile.midi"
             done
         done
     done

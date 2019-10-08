@@ -4,8 +4,10 @@
 from musthe import *
 import sys
 
+# http://lilypond.org/doc/v2.19/Documentation/notation/midi-instruments
 
-def lilypond_composer(bars, tempo, instrument='electric piano 1', file_name='example.ly'):
+
+def lilypond_composer(bars, tempo, instrument='acoustic grand', file_name='example.ly'):
     f = open(file_name, 'w')
     f.write('''\\score {
     \\new Voice \\relative c\' {
